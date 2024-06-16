@@ -1,10 +1,10 @@
-import React from 'react'
+import { Button } from '@mui/material'
 
 function Create() {
   return (
-    <div>
-      
-    </div>
+    <Button variant='contained' size='small'>
+      Create
+    </Button>
   )
 }
 

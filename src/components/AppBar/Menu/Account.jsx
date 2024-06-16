@@ -14,7 +14,7 @@ function Account() {
           aria-haspopup="true"
           aria-expanded={open ? 'true' : undefined}
         >
-          <Avatar sx={{ width: 32, height: 32 }} src={myavt} ></Avatar>
+          <Avatar sx={{ width: 24, height: 24 }} src={myavt} ></Avatar>
         </IconButton>
       </Tooltip>
     </>

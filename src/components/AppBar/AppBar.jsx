@@ -30,7 +30,8 @@ function AppBar() {
       p: 1,
       display: 'flex',
       justifyContent: 'space-between',
-      backgroundColor: '#005485'
+      backgroundColor: '#005485',
+      height: (theme) => theme.trello.appBarHeight
     }}>
       <Box sx={{ display: 'flex', alignContent: 'center' }}>
         <More/>
