@@ -42,7 +42,7 @@ function Workspaces() {
         }}>
         <List sx={{ fontSize: '0.75rem' }}
           subheader={
-            <ListSubheader component="div" sx={{ fontSize: '0.75rem', fontWeight: '700' }}>
+            <ListSubheader component="div">
               Current Workspace
             </ListSubheader>
           }
@@ -57,7 +57,7 @@ function Workspaces() {
         <Divider/>
         <List
           subheader={
-            <ListSubheader component="div" sx={{ fontSize: '0.75rem', fontWeight: '700' }}>
+            <ListSubheader component="div">
               Your Workspaces
             </ListSubheader>
           }

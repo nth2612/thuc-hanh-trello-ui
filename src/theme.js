@@ -52,6 +52,21 @@ const theme = extendTheme({
           textTransform: 'initial'
         }
       }
+    },
+    MuiTypography: {
+      styleOverrides: {
+        root: {
+          fontSize: '0.875rem'
+        }
+      }
+    },
+    MuiListSubheader:{
+      styleOverrides:{
+        root: {
+          fontSize: '0.75rem',
+          fontWeight: '700'
+        }
+      }
     }
   },
   trello: {
