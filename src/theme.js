@@ -42,14 +42,16 @@ const theme = extendTheme({
     MuiPaper: {
       styleOverrides:{
         root:{
-          top: `${APP_BAR_HEIGHT} !important`
+          top: `${APP_BAR_HEIGHT} !important`,
+          borderRadius: '8px'
         }
       }
     },
     MuiButton: {
       styleOverrides:{
         root:{
-          textTransform: 'initial'
+          textTransform: 'initial',
+          '&:hover' : { backgroundColor: 'rgba(255, 255, 255, 0.3)' }
         }
       }
     },

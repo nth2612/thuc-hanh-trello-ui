@@ -3,7 +3,8 @@ import { Box, Button, SvgIcon, Typography } from '@mui/material'
 function Home() {
   return (
     <Box sx={{ display: 'flex', alignItems: 'center' }}>
-      <Button sx={{textTransform: 'initial', gap: 0.5, paddingY: '2.25px' }}>
+      {/* , paddingY: '2.25px' */}
+      <Button sx={{textTransform: 'initial', gap: 0.5 }}>
         <SvgIcon component={TrelloIcon} fontSize='small' inheritViewBox />
         <Typography variant='h6'>Trello</Typography>
       </Button>

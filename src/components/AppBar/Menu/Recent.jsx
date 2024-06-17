@@ -1,7 +1,8 @@
-import { Avatar, Button, Divider, List, ListItemAvatar, ListItemButton, ListItemText, ListSubheader, Menu } from '@mui/material'
+import { Box, Button, List, ListItemButton, ListItemIcon, ListItemText, Menu } from '@mui/material'
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore'
 import { useState } from 'react'
-import myavt3 from '~/assets/myavt3.png'
+import StarOutlineIcon from '@mui/icons-material/StarOutline'
+import StarOutlinedIcon from '@mui/icons-material/StarOutlined'
 
 function Recent() {
   const [anchorEl, setAnchorEl] = useState(null)
@@ -16,8 +17,8 @@ function Recent() {
     <>
       <Button
         endIcon={<ExpandMoreIcon/>}
-        id='workspace-btn'
-        aria-controls={open ? 'menu-workspace' : undefined}
+        id='recent-btn'
+        aria-controls={open ? 'menu-recent' : undefined}
         aria-haspopup="true"
         aria-expanded={open ? 'true' : undefined}
         onClick={handleClick}
@@ -26,59 +27,31 @@ function Recent() {
       </Button>
       <Menu
         sx={{
-          '& .MuiPaper-root' : {
-            borderRadius: '8px'
-          },
           '& > .MuiPaper-root > .MuiList-root' : {
             padding: 0
           }
         }}
-        id='menu-workspace'
+        id='menu-recent'
         anchorEl={anchorEl}
         open={open}
         onClose={handleClose}
         MenuListProps={{
-          'aria-labelledby': 'workspace-btn'
+          'aria-labelledby': 'recent-btn'
         }}>
-        <List sx={{ fontSize: '0.75rem' }}
-          subheader={
-            <ListSubheader component="div" sx={{ fontSize: '0.75rem', fontWeight: '700' }}>
-              Current Workspace
-            </ListSubheader>
-          }
-        >
-          <ListItemButton>
-            <ListItemAvatar>
-              <Avatar sx={{ borderRadius: '4px' }} src={myavt3}></Avatar>
-            </ListItemAvatar>
-            <ListItemText disableTypography>My workspace 1</ListItemText>
+        <List sx={{ paddingX: 1 }}>
+          <ListItemButton sx={{ padding: '0 8px', borderRadius: '8px', mb: 0.5 }}>
+            <Box sx={{ width: '40px', height: '32px', borderRadius: '4px', backgroundColor: '#0079BF' }}></Box>
+            <ListItemText sx={{ ml: 1, marginY: 0 }} primary='My workspace 1' secondary='test'/>
+            <ListItemIcon sx={{ justifyContent: 'center' }}>
+              <StarOutlineIcon/>
+            </ListItemIcon>
           </ListItemButton>
-        </List>
-        <Divider/>
-        <List
-          subheader={
-            <ListSubheader component="div" sx={{ fontSize: '0.75rem', fontWeight: '700' }}>
-              Your Workspaces
-            </ListSubheader>
-          }
-        >
-          <ListItemButton>
-            <ListItemAvatar id='hihi'>
-              <Avatar sx={{ borderRadius: '4px' }} src={myavt3}></Avatar>
-            </ListItemAvatar>
-            <ListItemText disableTypography>My workspace 1</ListItemText>
-          </ListItemButton>
-          <ListItemButton>
-            <ListItemAvatar>
-              <Avatar sx={{ borderRadius: '4px' }} src={myavt3}></Avatar>
-            </ListItemAvatar>
-            <ListItemText disableTypography>My workspace 2</ListItemText>
-          </ListItemButton>
-          <ListItemButton>
-            <ListItemAvatar>
-              <Avatar sx={{ borderRadius: '4px' }} src={myavt3}></Avatar>
-            </ListItemAvatar>
-            <ListItemText disableTypography>My workspace 3</ListItemText>
+          <ListItemButton sx={{ padding: '0 8px', borderRadius: '8px', mb: 0.5 }}>
+            <Box sx={{ width: '40px', height: '32px', borderRadius: '4px', backgroundColor: '#CD5A91' }}></Box>
+            <ListItemText sx={{ ml: 1, marginY: 0 }} primary='My workspace 2' secondary='test'/>
+            <ListItemIcon sx={{ justifyContent: 'center' }}>
+              <StarOutlinedIcon sx={{ color: '#E2B203' }}/>
+            </ListItemIcon>
           </ListItemButton>
         </List>
       </Menu>

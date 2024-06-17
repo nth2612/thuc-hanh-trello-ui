@@ -1,4 +1,4 @@
-import { Avatar, Button, Divider, List, ListItemAvatar, ListItemButton, ListItemText, ListSubheader, Menu } from '@mui/material'
+import { Avatar, Box, Button, Divider, List, ListItemAvatar, ListItemButton, ListItemText, ListSubheader, Menu, Typography } from '@mui/material'
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore'
 import { useState } from 'react'
 import myavt3 from '~/assets/myavt3.png'
@@ -40,46 +40,10 @@ function Templates() {
         MenuListProps={{
           'aria-labelledby': 'workspace-btn'
         }}>
-        <List sx={{ fontSize: '0.75rem' }}
-          subheader={
-            <ListSubheader component="div" sx={{ fontSize: '0.75rem', fontWeight: '700' }}>
-              Current Workspace
-            </ListSubheader>
-          }
-        >
-          <ListItemButton>
-            <ListItemAvatar>
-              <Avatar sx={{ borderRadius: '4px' }} src={myavt3}></Avatar>
-            </ListItemAvatar>
-            <ListItemText disableTypography>My workspace 1</ListItemText>
-          </ListItemButton>
-        </List>
-        <Divider/>
-        <List
-          subheader={
-            <ListSubheader component="div" sx={{ fontSize: '0.75rem', fontWeight: '700' }}>
-              Your Workspaces
-            </ListSubheader>
-          }
-        >
-          <ListItemButton>
-            <ListItemAvatar id='hihi'>
-              <Avatar sx={{ borderRadius: '4px' }} src={myavt3}></Avatar>
-            </ListItemAvatar>
-            <ListItemText disableTypography>My workspace 1</ListItemText>
-          </ListItemButton>
-          <ListItemButton>
-            <ListItemAvatar>
-              <Avatar sx={{ borderRadius: '4px' }} src={myavt3}></Avatar>
-            </ListItemAvatar>
-            <ListItemText disableTypography>My workspace 2</ListItemText>
-          </ListItemButton>
-          <ListItemButton>
-            <ListItemAvatar>
-              <Avatar sx={{ borderRadius: '4px' }} src={myavt3}></Avatar>
-            </ListItemAvatar>
-            <ListItemText disableTypography>My workspace 3</ListItemText>
-          </ListItemButton>
+        <List>
+          <Box sx={{ height: '200px', display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+            <Typography>Havent finished coding yet</Typography>
+          </Box>
         </List>
       </Menu>
     </>
