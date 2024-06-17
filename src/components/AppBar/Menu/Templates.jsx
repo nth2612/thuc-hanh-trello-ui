@@ -1,7 +1,6 @@
-import { Avatar, Box, Button, Divider, List, ListItemAvatar, ListItemButton, ListItemText, ListSubheader, Menu, Typography } from '@mui/material'
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore'
+import { Box, Button, List, Menu, Typography } from '@mui/material'
 import { useState } from 'react'
-import myavt3 from '~/assets/myavt3.png'
 
 function Templates() {
   const [anchorEl, setAnchorEl] = useState(null)

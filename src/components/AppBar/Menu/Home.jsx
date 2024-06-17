@@ -4,7 +4,7 @@ function Home() {
   return (
     <Box sx={{ display: 'flex', alignItems: 'center' }}>
       {/* , paddingY: '2.25px' */}
-      <Button sx={{textTransform: 'initial', gap: 0.5 }}>
+      <Button sx={{ textTransform: 'initial', gap: 0.5 }}>
         <SvgIcon component={TrelloIcon} fontSize='small' inheritViewBox />
         <Typography variant='h6'>Trello</Typography>
       </Button>

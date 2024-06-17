@@ -4,6 +4,27 @@ import GroupIcon from '@mui/icons-material/Group'
 import DashboardIcon from '@mui/icons-material/Dashboard'
 import AssignmentTurnedInIcon from '@mui/icons-material/AssignmentTurnedIn'
 
+const listCreate = [
+  {
+    id: 1,
+    pri_text : 'Create board',
+    se_text : 'A board is made up of cards ordered on lists. Use it to manage projects, track information, or organize anything.',
+    icon: <AssignmentTurnedInIcon fontSize='small' sx={{ color: '#44546f', mr: 0.5 }} />
+  },
+  {
+    id: 2,
+    pri_text : 'Start with a template',
+    se_text : 'Get started faster with a board template.',
+    icon: <DashboardIcon fontSize='small' sx={{ color: '#44546f', mr: 0.5 }} />
+  },
+  {
+    id: 3,
+    pri_text : 'Create Workspace',
+    se_text : 'A Workspace is a group of boards and people. Use it to organize your company, side hustle, family, or friends.',
+    icon: <GroupIcon fontSize='small' sx={{ color: '#44546f', mr: 0.5 }} />
+  }
+]
+
 function Create() {
   const [anchorEl, setAnchorEl] = useState(null)
   const open = Boolean(anchorEl)
@@ -42,48 +63,24 @@ function Create() {
           'aria-labelledby': 'create-btn'
         }}>
         <List>
-          <ListItemButton>
-            <ListItemText
-              sx={{ marginY: 0 }}
-              primary={
-                <Typography sx={{ display: 'flex', alignItems: 'center', paddingBottom: 0.5, pl: 0.5 }}>
-                  <AssignmentTurnedInIcon fontSize='small' sx={{ color: '#44546f' }} />
-                  <Typography variant='span'>Create board</Typography>
-                </Typography>
-              }
-              secondary={
-                <Typography sx={{ fontSize: '0.75rem' }}>A board is made up of cards ordered on lists. Use it to manage projects, track information, or organize anything.</Typography>
-              }
-            />
-          </ListItemButton>
-          <ListItemButton>
-            <ListItemText
-              sx={{ marginY: 0 }}
-              primary={
-                <Typography sx={{ display: 'flex', alignItems: 'center', paddingBottom: 0.5, pl: 0.5 }}>
-                  <DashboardIcon fontSize='small' sx={{ color: '#44546f' }} />
-                  <Typography variant='span'>Start with a template</Typography>
-                </Typography>
-              }
-              secondary={
-                <Typography sx={{ fontSize: '0.75rem' }}>Get started faster with a board template.</Typography>
-              }
-            />
-          </ListItemButton>
-          <ListItemButton>
-            <ListItemText
-              sx={{ marginY: 0 }}
-              primary={
-                <Typography sx={{ display: 'flex', alignItems: 'center', paddingBottom: 0.5, pl: 0.5 }}>
-                  <GroupIcon fontSize='small' sx={{ color: '#44546f' }} />
-                  <Typography variant='span'>Create Workspace</Typography>
-                </Typography>
-              }
-              secondary={
-                <Typography sx={{ fontSize: '0.75rem' }}>A Workspace is a group of boards and people. Use it to organize your company, side hustle, family, or friends.</Typography>
-              }
-            />
-          </ListItemButton>
+          {listCreate.map(create => {
+            return (
+              <ListItemButton key={create.id}>
+                <ListItemText
+                  sx={{ marginY: 0 }}
+                  primary={
+                    <Typography sx={{ display: 'flex', alignItems: 'center', paddingBottom: 0.5, pl: 0.5 }}>
+                      {create.icon}
+                      <Typography variant='span'>{create.pri_text}</Typography>
+                    </Typography>
+                  }
+                  secondary={
+                    <Typography sx={{ fontSize: '0.75rem' }}>{create.se_text}</Typography>
+                  }
+                />
+              </ListItemButton>
+            )
+          })}
         </List>
       </Menu>
     </>

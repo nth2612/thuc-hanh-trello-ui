@@ -3,7 +3,7 @@ import myavt from '~/assets/myavt5.png'
 import Tooltip from '@mui/material/Tooltip'
 import IconButton from '@mui/material/IconButton'
 import { useState } from 'react'
-import { Divider, List, ListItem, ListItemButton, ListItemIcon, ListItemText, ListSubheader, Menu, MenuItem, Typography } from '@mui/material'
+import { Divider, List, ListItem, ListItemButton, ListItemIcon, ListItemText, ListSubheader, Menu, Typography } from '@mui/material'
 import OutputIcon from '@mui/icons-material/Output'
 import ChevronRightIcon from '@mui/icons-material/ChevronRight'
 
@@ -42,7 +42,7 @@ function Account() {
           'aria-labelledby' : 'account-btn'
         }}
       >
-        <List id='haha' subheader={
+        <List subheader={
           <ListSubheader component={'div'} sx={{ color: '#626f86' }}>ACCOUNT</ListSubheader>
         }>
           <ListItem>

@@ -16,15 +16,9 @@ import Create from './Menu/Create'
 import Account from './Menu/Account'
 
 function AppBar() {
-  const [anchorEl, setAnchorEl] = useState(null)
+
   const [searchText, setSearchText] = useState('')
-  const open = Boolean(anchorEl)
-  const handleClick = (event) => {
-    setAnchorEl(event.currentTarget)
-  }
-  const handleClose = () => {
-    setAnchorEl(null)
-  }
+
   return (
     <Box sx={{
       p: 1,
@@ -46,7 +40,7 @@ function AppBar() {
         <Tooltip title='Search: /'>
           <TextField
             sx={{
-              '&:hover' : { backgroundColor: 'rgba(255, 255, 255, 0.3)'},
+              '&:hover' : { backgroundColor: 'rgba(255, 255, 255, 0.3)' },
               '& input' : { paddingY: '4.5px' },
               '& fieldset, & .MuiInputBase-root:hover fieldset, & > .MuiOutlinedInput-root.Mui-focused > fieldset' : { borderColor: '#fff' },
               '& label, & input, & .MuiInputAdornment-root .MuiSvgIcon-root' : { color: 'white' }
@@ -72,10 +66,10 @@ function AppBar() {
           />
         </Tooltip>
         <Tooltip title='Notifications'>
-          <NotificationsOutlinedIcon sx={{ color: 'white'}} />
+          <NotificationsOutlinedIcon sx={{ color: 'white' }} />
         </Tooltip>
         <Tooltip title='Information'>
-          <HelpOutlineIcon sx={{ color: 'white'}} />
+          <HelpOutlineIcon sx={{ color: 'white' }} />
         </Tooltip>
         <Account/>
       </Box>
