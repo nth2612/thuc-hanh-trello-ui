@@ -20,6 +20,7 @@ function Account() {
     <>
       <Tooltip title="Account">
         <IconButton
+          sx={{ '&:hover' : { backgroundColor: '#a6c5e229' } }}
           size="small"
           id='account-btn'
           aria-controls={open ? 'account-menu' : undefined}
