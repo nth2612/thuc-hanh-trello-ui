@@ -1,4 +1,4 @@
-import { Box, Divider, ListItem, Menu, Tooltip, Typography } from '@mui/material'
+import { Box, Button, Divider, ListItem, Menu, Tooltip, Typography } from '@mui/material'
 import NotificationsOutlinedIcon from '@mui/icons-material/NotificationsOutlined'
 import IconButton from '@mui/material/IconButton'
 import { useState } from 'react'
@@ -6,13 +6,16 @@ import MoreVertIcon from '@mui/icons-material/MoreVert'
 import { styled } from '@mui/material/styles'
 import Switch from '@mui/material/Switch'
 
-const Android12Switch = styled(Switch)(({ theme }) => ({
+const Android12Switch = styled(Switch)(() => ({
   padding: 8,
+  '& .MuiButtonBase-root.Mui-checked + .MuiSwitch-track' : { backgroundColor: '#1f845a', opacity: 1 },
   '& .MuiSwitch-track': {
     borderRadius: 22 / 2,
-    backgroundColor: 'green',
+    backgroundColor: '#44546f',
+    opacity: 1,
     '&::before, &::after': {
-      content: '""',
+      // content: '""',
+      color: 'white',
       position: 'absolute',
       top: '50%',
       transform: 'translateY(-50%)',
@@ -20,14 +23,15 @@ const Android12Switch = styled(Switch)(({ theme }) => ({
       height: 16
     },
     '&::before': {
-      content : '"x"',
-      left: 12
+      content : '"\\2714"',
+      left: 12,
+      top: 15
     },
     '&::after': {
-      backgroundImage: `url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" height="16" width="16" viewBox="0 0 24 24"><path fill="${encodeURIComponent(
-        theme.palette.getContrastText(theme.palette.primary.main)
-      )}" d="M19,13H5V11H19V13Z" /></svg>')`,
-      right: 12
+      content : '"\\00D7"',
+      right: 8,
+      top: 10,
+      fontSize: '22px'
     }
   },
   '& .MuiSwitch-thumb': {
@@ -39,6 +43,7 @@ const Android12Switch = styled(Switch)(({ theme }) => ({
 }))
 
 function Notification() {
+  const [showUnread, setShowUnread] = useState(true)
   const [anchorEl, setAnchorEl] = useState(null)
   const open = Boolean(anchorEl)
   const handleClick = (event) => {
@@ -76,17 +81,22 @@ function Notification() {
         }}
       >
         <ListItem sx={{ display: 'block' }}>
-          <Box sx={{ display: 'flex', justifyContent: 'space-between' }}>
+          <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
             <Typography variant='h2' sx={{ fontSize: '20px', fontWeight: '500' }}>Notifications</Typography>
             <Box sx={{ display: 'flex', alignItems: 'center' }}>
               <Typography>Only show unread</Typography>
-              <Android12Switch defaultChecked />
-              <MoreVertIcon/>
-              <Switch/>
+              <Android12Switch checked={showUnread} onChange={() => setShowUnread(!showUnread)} />
+              <Button sx={{ width: '30px', height: '30px', minWidth: 'unset', color: 'unset', '&:hover' : { backgroundColor: '#091e4224' } }} >
+                <MoreVertIcon />
+              </Button>
             </Box>
           </Box>
         </ListItem>
-        <Divider/>
+        <Divider variant='middle' />
+        <Box sx={{ display: 'flex', alignItems: 'center', flexDirection: 'column', paddingY: '70px' }}>
+          <img style={{ marginBottom: '32px', display: 'block' }} src="https://trello.com/assets/ee2660df9335718b1a80.svg" alt="img" />
+          <Typography variant='span' fontSize='20px'>{showUnread ? 'No unread notifications' : 'No notifications'}</Typography>
+        </Box>
       </Menu>
     </>
   )

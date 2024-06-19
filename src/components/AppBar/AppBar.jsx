@@ -29,7 +29,7 @@ function AppBar() {
         <Templates/>
         <Create/>
       </Box>
-      <Box sx={{ display: 'flex', alignItems: 'center', flexWrap: 'wrap', gap:1 }}>
+      <Box sx={{ display: 'flex', alignItems: 'center', flexWrap: 'wrap', gap: 0.5 }}>
         <Search/>
         <Notification/>
         <Information/>
