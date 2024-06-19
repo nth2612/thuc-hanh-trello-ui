@@ -24,13 +24,13 @@ const theme = extendTheme({
     }
   },
   components: {
-    MuiList:{
-      styleOverrides:{
-        root:{
-          width: '304px'
-        }
-      }
-    },
+    // MuiList:{
+    //   styleOverrides:{
+    //     root:{
+    //       width: '304px'
+    //     }
+    //   }
+    // },
     MuiListItemText:{
       styleOverrides:{
         root:{
@@ -43,7 +43,8 @@ const theme = extendTheme({
       styleOverrides:{
         root:{
           top: `${APP_BAR_HEIGHT} !important`,
-          borderRadius: '8px'
+          borderRadius: '8px',
+          width: '304px'
         }
       }
     },
