@@ -4,13 +4,12 @@ import BoltIcon from '@mui/icons-material/Bolt'
 import FilterListIcon from '@mui/icons-material/FilterList'
 import GroupAddOutlinedIcon from '@mui/icons-material/GroupAddOutlined'
 import KeyboardDoubleArrowUpOutlinedIcon from '@mui/icons-material/KeyboardDoubleArrowUpOutlined'
-import Groups2OutlinedIcon from '@mui/icons-material/Groups2Outlined'
 import DashboardOutlinedIcon from '@mui/icons-material/DashboardOutlined'
 import StarRoundedIcon from '@mui/icons-material/StarRounded'
-import KeyboardArrowRightRoundedIcon from '@mui/icons-material/KeyboardArrowRightRounded'
 import KeyboardArrowDownRoundedIcon from '@mui/icons-material/KeyboardArrowDownRounded'
 import MoreHorizRoundedIcon from '@mui/icons-material/MoreHorizRounded'
 import myavt5 from '~/assets/myavt5.png'
+import WorkspaceVisible from './Menu/WorkspaceVisible'
 
 
 function BoardBar() {
@@ -28,9 +27,7 @@ function BoardBar() {
         <Box sx={{ width: '36.5px', height: '36.5px', padding: '6.25px', color: 'white', cursor: 'pointer', borderRadius: 1, '&:hover' : { backgroundColor: 'rgba(255,255,255,0.2)' } }}>
           <StarRoundedIcon/>
         </Box>
-        <Tooltip title='Change visibility'>
-          <Button sx={{ paddingRight: 1.5, paddingLeft: 2 }} startIcon={<Groups2OutlinedIcon/>}>Workspace visible</Button>
-        </Tooltip>
+        <WorkspaceVisible/>
         <Tooltip title='Board'>
           <Button
             startIcon={<DashboardOutlinedIcon/>}
