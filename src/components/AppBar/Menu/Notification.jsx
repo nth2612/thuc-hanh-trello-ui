@@ -76,6 +76,13 @@ function Notification() {
         anchorEl={anchorEl}
         open={open}
         onClose={handleClose}
+        slotProps={{
+          paper: {
+            sx: {
+              top: (theme) => theme.trello.importantHeightAppBar
+            }
+          }
+        }}
         MenuListProps={{
           'aria-labelledby' : 'notification-btn'
         }}

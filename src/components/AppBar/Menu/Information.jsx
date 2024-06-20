@@ -81,13 +81,21 @@ function Information() {
       </Tooltip>
       <Menu
         sx={{
-          '& .MuiPaper-root' : { width: '384px', padding: 1.5 },
           '& > .MuiPaper-root > .MuiList-root' : { padding: '0 12px' }
         }}
         id='information-menu'
         anchorEl={anchorEl}
         open={open}
         onClose={handleClose}
+        slotProps={{
+          paper: {
+            sx: {
+              top: (theme) => theme.trello.importantHeightAppBar,
+              width: '384px',
+              padding: 1.5
+            }
+          }
+        }}
         MenuListProps={{
           'aria-labelledby' : 'information-btn'
         }}

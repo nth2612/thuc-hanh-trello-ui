@@ -42,7 +42,7 @@ const theme = extendTheme({
     MuiPaper: {
       styleOverrides:{
         root:{
-          top: `${APP_BAR_HEIGHT} !important`,
+          // top: `${APP_BAR_HEIGHT} !important`,
           borderRadius: '8px',
           width: '304px'
         }
@@ -77,7 +77,8 @@ const theme = extendTheme({
     boardBarHeight: BOARD_BAR_HEIGHT,
     boardContentHeight: BOARD_CONTENT_HEIGHT,
     columnHeaderHeight: COLUMN_HEIGHT_HEADER,
-    columnFooterHeight: COLUMN_HEIGHT_FOOTER
+    columnFooterHeight: COLUMN_HEIGHT_FOOTER,
+    importantHeightAppBar: `${APP_BAR_HEIGHT} !important`
   }
 })
 
