@@ -10,6 +10,7 @@ import KeyboardArrowDownRoundedIcon from '@mui/icons-material/KeyboardArrowDownR
 import MoreHorizRoundedIcon from '@mui/icons-material/MoreHorizRounded'
 import myavt5 from '~/assets/myavt5.png'
 import WorkspaceVisible from './Menu/WorkspaceVisible'
+import CustomizeView from './Menu/CustomizeView'
 
 
 function BoardBar() {
@@ -40,11 +41,7 @@ function BoardBar() {
             Board
           </Button>
         </Tooltip>
-        <Tooltip title='Customize views'>
-          <Button sx={{ minWidth: 'unset' }}>
-            <KeyboardArrowDownRoundedIcon />
-          </Button>
-        </Tooltip>
+        <CustomizeView/>
       </Box>
       <Box sx={{ display: 'flex', alignItems: 'center', gap: 0.5, '& .MuiButtonBase-root' : { paddingX: '12px' } }}>
         <Tooltip title='Power-Ups'>
