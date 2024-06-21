@@ -1,16 +1,15 @@
 import { Avatar, Box, Button, Divider, Tooltip, Typography } from '@mui/material'
-import RocketLaunchOutlinedIcon from '@mui/icons-material/RocketLaunchOutlined'
-import BoltIcon from '@mui/icons-material/Bolt'
 import FilterListIcon from '@mui/icons-material/FilterList'
 import GroupAddOutlinedIcon from '@mui/icons-material/GroupAddOutlined'
 import KeyboardDoubleArrowUpOutlinedIcon from '@mui/icons-material/KeyboardDoubleArrowUpOutlined'
 import DashboardOutlinedIcon from '@mui/icons-material/DashboardOutlined'
 import StarRoundedIcon from '@mui/icons-material/StarRounded'
-import KeyboardArrowDownRoundedIcon from '@mui/icons-material/KeyboardArrowDownRounded'
 import MoreHorizRoundedIcon from '@mui/icons-material/MoreHorizRounded'
 import myavt5 from '~/assets/myavt5.png'
 import WorkspaceVisible from './Menu/WorkspaceVisible'
 import CustomizeView from './Menu/CustomizeView'
+import PowerUp from './Menu/PowerUp'
+import Automation from './Menu/Automation'
 
 
 function BoardBar() {
@@ -44,12 +43,8 @@ function BoardBar() {
         <CustomizeView/>
       </Box>
       <Box sx={{ display: 'flex', alignItems: 'center', gap: 0.5, '& .MuiButtonBase-root' : { paddingX: '12px' } }}>
-        <Tooltip title='Power-Ups'>
-          <Button sx={{ '& .MuiSvgIcon-root': { fontSize: '16px' } }} startIcon={<RocketLaunchOutlinedIcon/>}>Power-Ups</Button>
-        </Tooltip>
-        <Tooltip title='Automation'>
-          <Button sx={{ '& .MuiSvgIcon-root': { fontSize: '18px' }, '& .MuiButton-startIcon' : { mr: '4px' } }} startIcon={<BoltIcon/>}>Automation</Button>
-        </Tooltip>
+        <PowerUp/>
+        <Automation/>
         <Tooltip title='Filter cards F'>
           <Button startIcon={<FilterListIcon/>}>Filter</Button>
         </Tooltip>
