@@ -1,59 +1,51 @@
-import { Avatar, Box, Button, Divider, Tooltip, Typography, Menu, List, ListSubheader, ListItemButton, ListItemText, ListItemIcon } from '@mui/material'
-import RocketLaunchOutlinedIcon from '@mui/icons-material/RocketLaunchOutlined'
-import BoltIcon from '@mui/icons-material/Bolt'
-import FilterListIcon from '@mui/icons-material/FilterList'
-import GroupAddOutlinedIcon from '@mui/icons-material/GroupAddOutlined'
-import KeyboardDoubleArrowUpOutlinedIcon from '@mui/icons-material/KeyboardDoubleArrowUpOutlined'
-import DashboardOutlinedIcon from '@mui/icons-material/DashboardOutlined'
-import StarRoundedIcon from '@mui/icons-material/StarRounded'
-import KeyboardArrowDownRoundedIcon from '@mui/icons-material/KeyboardArrowDownRounded'
-import MoreHorizRoundedIcon from '@mui/icons-material/MoreHorizRounded'
-import myavt5 from '~/assets/myavt5.png'
-import { useState } from 'react'
-import DragIndicatorIcon from '@mui/icons-material/DragIndicator'
-import TableRowsIcon from '@mui/icons-material/TableRows'
 import CalendarMonthIcon from '@mui/icons-material/CalendarMonth'
-import ViewTimelineOutlinedIcon from '@mui/icons-material/ViewTimelineOutlined'
+import CheckBoxOutlineBlankOutlinedIcon from '@mui/icons-material/CheckBoxOutlineBlankOutlined'
+import CheckBoxOutlinedIcon from '@mui/icons-material/CheckBoxOutlined'
+import DashboardOutlinedIcon from '@mui/icons-material/DashboardOutlined'
+import DragIndicatorIcon from '@mui/icons-material/DragIndicator'
+import KeyboardArrowDownRoundedIcon from '@mui/icons-material/KeyboardArrowDownRounded'
+import LockOutlinedIcon from '@mui/icons-material/LockOutlined'
 import PlaceIcon from '@mui/icons-material/Place'
 import SignalCellularAltIcon from '@mui/icons-material/SignalCellularAlt'
-import CheckBoxOutlineBlankOutlinedIcon from '@mui/icons-material/CheckBoxOutlineBlankOutlined'
-import LockOutlinedIcon from '@mui/icons-material/LockOutlined'
-import CheckBoxOutlinedIcon from '@mui/icons-material/CheckBoxOutlined'
+import TableRowsIcon from '@mui/icons-material/TableRows'
+import ViewTimelineOutlinedIcon from '@mui/icons-material/ViewTimelineOutlined'
+import { Box, Button, Link, List, ListItemButton, ListItemIcon, ListItemText, ListSubheader, Menu, Tooltip, Typography } from '@mui/material'
+import { useState } from 'react'
 
 const listViews = [
   {
     id: 1,
-    icon: <DashboardOutlinedIcon/>,
+    icon: <DashboardOutlinedIcon fontSize='16px' />,
     nameView: 'Board',
     disabled: false
   },
   {
     id: 2,
-    icon: <TableRowsIcon/>,
+    icon: <TableRowsIcon fontSize='16px'/>,
     nameView: 'Table',
     disabled: true
   },
   {
     id: 3,
-    icon: <CalendarMonthIcon/>,
+    icon: <CalendarMonthIcon fontSize='16px'/>,
     nameView: 'Calendar',
     disabled: true
   },
   {
     id: 4,
-    icon: <ViewTimelineOutlinedIcon/>,
+    icon: <ViewTimelineOutlinedIcon fontSize='16px'/>,
     nameView: 'Timeline',
     disabled: true
   },
   {
     id: 5,
-    icon: <SignalCellularAltIcon/>,
+    icon: <SignalCellularAltIcon fontSize='16px'/>,
     nameView: 'Dashboard',
-    disabled: false
+    disabled: true
   },
   {
     id: 6,
-    icon: <PlaceIcon/>,
+    icon: <PlaceIcon fontSize='16px'/>,
     nameView: 'Map',
     disabled: true
   }
@@ -91,21 +83,21 @@ function CustomizeView() {
           'aria-labelledby': 'btn-customize-views'
         }}
       >
-        <List>
-          <ListSubheader sx={{ textAlign: 'center', fontSize: '0.875rem' }}>Upgrade for Views</ListSubheader>
+        <List sx={{ padding: '0 12px 12px 12px' }}>
+          <ListSubheader sx={{ textAlign: 'center', fontSize: '0.875rem', lineHeight: '36px' }}>Upgrade for Views</ListSubheader>
           {listViews.map(vi => (
             <Box key={vi.id} sx={{ cursor: !vi.disabled ? 'pointer' : 'not-allowed' }}>
-              <ListItemButton disabled={vi.disabled} sx={{ padding: '6px 12px' }}>
+              <ListItemButton disabled={vi.disabled} sx={{ padding: '6px 0', '&:hover' : { backgroundColor: 'unset' } }}>
                 <ListItemIcon sx={{ minWidth: 'unset' }}>
                   <DragIndicatorIcon fontSize='16px' />
                 </ListItemIcon>
                 <ListItemIcon sx={{ minWidth: 'unset' }}>
-                  {vi.disabled ? <CheckBoxOutlineBlankOutlinedIcon sx={{ fontSize: '20px' }} /> : <CheckBoxOutlinedIcon sx={{ fontSize: '20px' }} />}
+                  {vi.disabled ? <CheckBoxOutlineBlankOutlinedIcon sx={{ fontSize: '20px', marginLeft: '4px', marginRight: '10px' }} /> : <CheckBoxOutlinedIcon sx={{ fontSize: '20px', marginLeft: '4px', marginRight: '10px' }} />}
                 </ListItemIcon>
                 <ListItemText
                   sx={{ marginY: 0 }}
                   primary={
-                    <Typography sx={{ display: 'flex', alignItems: 'center', paddingBottom: 0.5, pl: 0.5 }}>
+                    <Typography sx={{ display: 'flex', alignItems: 'center', gap: 0.75 }}>
                       {vi.icon}{vi.nameView}
                     </Typography>
                   }
@@ -117,6 +109,12 @@ function CustomizeView() {
               </ListItemButton>
             </Box>
           ))}
+          <ListSubheader sx={{ padding: 0, fontSize: '1rem', color: '#44546f', fontWeight: '500' }}>See your work in new ways</ListSubheader>
+          <ListItemText primary={
+            <Typography color='#44546f' marginBottom='16px'>View key timelines, assignments, data, and more directly from your Trello board with Trello Premium.</Typography>
+          } />
+          <Button fullWidth sx={{ backgroundColor: '#0c66e4', '&:hover' : { backgroundColor: '#0055cc' } }} >Start free trial</Button>
+          <Link href='/' underline='hover' color='#44546f' textAlign='center' display='flex' justifyContent='center' marginTop='1rem' >Learn more about Trello Premium</Link>
         </List>
       </Menu>
     </>
