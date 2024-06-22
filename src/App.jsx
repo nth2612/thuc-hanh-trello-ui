@@ -1,4 +1,4 @@
-import { Avatar, Box, Button, Tooltip, Typography } from '@mui/material'
+import { Avatar, Box, Button, List, ListItemButton, ListSubheader, Tooltip, Typography } from '@mui/material'
 import AppBar from './components/AppBar/AppBar'
 import BoardBar from './components/BoardBar/BoardBar'
 import KeyboardArrowRightRoundedIcon from '@mui/icons-material/KeyboardArrowRightRounded'
@@ -6,6 +6,45 @@ import KeyboardArrowLeftRoundedIcon from '@mui/icons-material/KeyboardArrowLeftR
 import { useState } from 'react'
 import myavt from '~/assets/myavt5.png'
 import WorkOutlineIcon from '@mui/icons-material/WorkOutline'
+import DashboardIcon from '@mui/icons-material/Dashboard'
+import Person2OutlinedIcon from '@mui/icons-material/Person2Outlined'
+import AddOutlinedIcon from '@mui/icons-material/AddOutlined'
+import SettingsOutlinedIcon from '@mui/icons-material/SettingsOutlined'
+import TableRowsIcon from '@mui/icons-material/TableRows'
+import ExpandMoreOutlinedIcon from '@mui/icons-material/ExpandMoreOutlined'
+import CalendarMonthIcon from '@mui/icons-material/CalendarMonth'
+import MoreHorizOutlinedIcon from '@mui/icons-material/MoreHorizOutlined'
+
+const listBoards = [
+  {
+    id: 1,
+    nameBoard: 'Đá tan'
+  },
+  {
+    id: 2,
+    nameBoard: 'Bạn thỏ tivi nhỏ'
+  },
+  {
+    id: 3,
+    nameBoard: 'Mất tích'
+  },
+  {
+    id: 4,
+    nameBoard: 'Thấy chưa'
+  },
+  {
+    id: 5,
+    nameBoard: 'Em trong đầu'
+  },
+  {
+    id: 6,
+    nameBoard: 'Em trang trí'
+  },
+  {
+    id: 7,
+    nameBoard: 'Mấy khi'
+  },
+]
 
 function App() {
   const [anchorEl, setAnchorEl] = useState(null)
@@ -37,7 +76,57 @@ function App() {
                     <KeyboardArrowLeftRoundedIcon/>
                   </Button>
                 </Box>
-                <Box sx={{ flex: 1 }} ></Box>
+                <Box sx={{ flex: 1 }} >
+                  <Box>
+                    <Box sx={{ paddingTop: '12px' }}>
+                      <Button sx={{ padding: '0 0 0 16px', height: '32px' }} startIcon={<DashboardIcon sx={{ ml: 0, fontSize: '1rem' }} />} fullWidth >
+                        <Typography sx={{ flex: '1', textAlign: 'left' }} >Boards</Typography>
+                      </Button>
+                      <Button sx={{ padding: '2px 2px 2px 16px' }} startIcon={<Person2OutlinedIcon sx={{ ml: 0, fontSize: '1rem' }} />} endIcon={<Button sx={{ minWidth: 'unset', marginX: '6px', padding: '4px' }} ><AddOutlinedIcon sx={{ fontSize: '20px' }} /></Button>} fullWidth>
+                        <Typography sx={{ flex: '1', textAlign: 'left' }} >Member</Typography>
+                      </Button>
+                      <Button sx={{ padding: '2px 2px 2px 16px' }} startIcon={<SettingsOutlinedIcon sx={{ ml: 0, fontSize: '1rem' }} />} endIcon={<Button sx={{ minWidth: 'unset', marginX: '6px', padding: '4px' }} ><ExpandMoreOutlinedIcon sx={{ fontSize: '20px' }} /></Button>} fullWidth>
+                        <Typography sx={{ flex: '1', textAlign: 'left' }}>
+                        Workspace settings
+                        </Typography>
+                      </Button>
+                    </Box>
+                    <Box>
+                      <h5 style={{ fontSize: '14px', color: '#fff', padding: '4px 0 4px 12px' }}>Workspace views</h5>
+                      <Button fullWidth sx={{ padding: '5.5px 6px 5.5px 16px' }} startIcon={<TableRowsIcon sx={{ ml: 0, fontSize: '1rem' }} />} >
+                        <Typography sx={{ flex: '1', textAlign: 'left', fontStyle: 'italic' }} >Table</Typography>
+                      </Button>
+                      <Button fullWidth sx={{ padding: '5.5px 6px 5.5px 16px' }} startIcon={<CalendarMonthIcon sx={{ ml: 0, fontSize: '1rem' }} />} >
+                        <Typography sx={{ flex: '1', textAlign: 'left', fontStyle: 'italic' }} >Calendar</Typography>
+                      </Button>
+                    </Box>
+                    <Box sx={{ mt: '6px' }}>
+                      <Box sx={{
+                        display: 'flex',
+                        alignItems: 'center',
+                        '& .MuiBox-root .MuiButtonBase-root:nth-child(1) .MuiSvgIcon-root' : { color: 'transparent' },
+                        '&:hover .MuiBox-root .MuiButtonBase-root:nth-child(1) .MuiSvgIcon-root' : { color: '#fff' }
+                      }}>
+                        <Typography sx={{ flex: 1, pl: '12px', fontWeight: '500', color: '#fff' }} >Your boards</Typography>
+                        <Box>
+                          <Button sx={{ mr: 0.5, minWidth: 'unset', padding: '4px', transition: 'none' }} >
+                            <MoreHorizOutlinedIcon sx={{ fontSize: '20px' }} />
+                          </Button>
+                          <Button sx={{ mr: 0.5, minWidth: 'unset', padding: '4px' }} >
+                            <AddOutlinedIcon sx={{ fontSize: '20px' }} />
+                          </Button>
+                        </Box>
+                      </Box>
+                      <List>
+                        {listBoards.map(board => (
+                          <ListItemButton key={board.id} >
+                            {board.nameBoard}
+                          </ListItemButton>
+                        ))}
+                      </List>
+                    </Box>
+                  </Box>
+                </Box>
                 <Box sx={{ borderTop: '1px solid #ffffff29', padding: '12px 16px 12px 12px' }}>
                   <Button
                     startIcon={<WorkOutlineIcon sx={{ ml: '6px' }}/>}
