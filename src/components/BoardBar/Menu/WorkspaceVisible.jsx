@@ -52,10 +52,12 @@ function WorkspaceVisible() {
   }
   const [choosedVisibility, setChoosedVisibility] = useState(listVisibility.find(vi => vi.checked === true))
   const handleChooseVisibility = (visibility) => {
-    const newCheckedVisibility = visibility
-    newCheckedVisibility.checked = true
-    choosedVisibility.checked = false
-    setChoosedVisibility(newCheckedVisibility)
+    if (visibility !== choosedVisibility) {
+      const newCheckedVisibility = visibility
+      newCheckedVisibility.checked = true
+      choosedVisibility.checked = false
+      setChoosedVisibility(newCheckedVisibility)
+    }
     handleClose()
   }
   const textChoosed = choosedVisibility.priText
