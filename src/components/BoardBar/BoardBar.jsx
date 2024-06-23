@@ -1,6 +1,5 @@
 import { Avatar, Box, Button, Divider, Tooltip, Typography } from '@mui/material'
 import FilterListIcon from '@mui/icons-material/FilterList'
-import GroupAddOutlinedIcon from '@mui/icons-material/GroupAddOutlined'
 import KeyboardDoubleArrowUpOutlinedIcon from '@mui/icons-material/KeyboardDoubleArrowUpOutlined'
 import DashboardOutlinedIcon from '@mui/icons-material/DashboardOutlined'
 import StarRoundedIcon from '@mui/icons-material/StarRounded'
@@ -10,6 +9,7 @@ import WorkspaceVisible from './Menu/WorkspaceVisible'
 import CustomizeView from './Menu/CustomizeView'
 import PowerUp from './Menu/PowerUp'
 import Automation from './Menu/Automation'
+import Share from './Menu/Share'
 
 
 function BoardBar() {
@@ -53,15 +53,7 @@ function BoardBar() {
           <Avatar src={myavt5} sx={{ width: '32px', height: '32px' }} />
           <KeyboardDoubleArrowUpOutlinedIcon sx={{ position: 'absolute', bottom: '-3px', right: '-3px', color: 'white', fontSize: '22px' }} />
         </Box>
-        <Button
-          startIcon={<GroupAddOutlinedIcon/>}
-          sx={{
-            backgroundColor: '#dcdfe4',
-            color: '#172b4d',
-            '&:hover' : { backgroundColor: 'white' }
-          }}>
-          Share
-        </Button>
+        <Share/>
         <Button sx={{ minWidth: 'unset', padding: '6.25px !important' }}>
           <MoreHorizRoundedIcon />
         </Button>
