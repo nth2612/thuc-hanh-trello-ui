@@ -53,7 +53,7 @@ function Share() {
             </IconButton>
           </Box>
           <Box sx={{ display: 'flex', mb: '16px' }} >
-            <TextField size='small' placeholder='Email address or name' sx={{ flex: 1 }} />
+            <TextField size='small' placeholder='Email address or name' sx={{ flex: 1, '& .MuiInputBase-input:focus fieldset' : { borderColor: '#388bff' } }} />
             <Button sx={{ mx: '8px', bgcolor: '#091e420f', color: '#172b4d', padding: '4px 10px', '&:hover' : { bgcolor: '#091e4224' } }} endIcon={<KeyboardArrowDownIcon sx={{ mr: 0 }} />} >Member</Button>
             <Button sx={{ bgcolor: '#0c66e4', color: '#fff', '&:hover' : { bgcolor: '#0055cc' } }} >Share</Button>
           </Box>

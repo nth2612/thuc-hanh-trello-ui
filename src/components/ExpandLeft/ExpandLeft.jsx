@@ -64,7 +64,7 @@ function ExpandLeft() {
   return (
     <>
       { openExpand
-        ? <Box sx={{ width: '260px', minHeight: '100%', position: 'relative', transition: 'width 100ms linear' }} >
+        ? <Box sx={{ width: '260px', minHeight: '100%', position: 'relative', transition: 'width 100ms linear', flexShrink: '0' }} >
           <Box sx={{ display: 'flex', flexDirection: 'column', minHeight: '100%', height: '100%', overflow: 'auto' }}>
             <Box sx={{ backgroundColor: '#0066a0', display: 'flex', flexDirection: 'column', flex: 1, overflow: 'auto' }} >
               <Box sx={{ display: 'flex', alignItems: 'center', padding: '10px 12px', borderBottom: '1px solid #ffffff29' }} >

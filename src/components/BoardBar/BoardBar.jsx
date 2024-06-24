@@ -1,18 +1,16 @@
-import { Avatar, Box, Button, Divider, Tooltip, Typography } from '@mui/material'
+import { Box, Button, Divider, Tooltip, Typography } from '@mui/material'
 import FilterListIcon from '@mui/icons-material/FilterList'
-import KeyboardDoubleArrowUpOutlinedIcon from '@mui/icons-material/KeyboardDoubleArrowUpOutlined'
 import DashboardOutlinedIcon from '@mui/icons-material/DashboardOutlined'
 import StarRoundedIcon from '@mui/icons-material/StarRounded'
 import MoreHorizRoundedIcon from '@mui/icons-material/MoreHorizRounded'
-import myavt5 from '~/assets/myavt5.png'
 import WorkspaceVisible from './Menu/WorkspaceVisible'
 import CustomizeView from './Menu/CustomizeView'
 import PowerUp from './Menu/PowerUp'
 import Automation from './Menu/Automation'
 import Share from './Menu/Share'
+import Members from './Menu/Members'
 
-
-function BoardBar() {
+function BoardBar({ handleOpen, open }) {
   return (
     <Box sx={{
       height: (theme) => theme.trello.boardBarHeight,
@@ -49,12 +47,9 @@ function BoardBar() {
           <Button startIcon={<FilterListIcon/>}>Filter</Button>
         </Tooltip>
         <Divider orientation='vertical' variant='middle' flexItem sx={{ borderColor: '#2976a3', margin: '8px 4px' }} />
-        <Box width={36} height={36} borderRadius='50%' display='flex' justifyContent='center' position='relative' alignItems='center' sx={{ '&:hover' : { backgroundColor: 'rgba(255,255,255,0.3)' } }} >
-          <Avatar src={myavt5} sx={{ width: '32px', height: '32px' }} />
-          <KeyboardDoubleArrowUpOutlinedIcon sx={{ position: 'absolute', bottom: '-3px', right: '-3px', color: 'white', fontSize: '22px' }} />
-        </Box>
+        <Members/>
         <Share/>
-        <Button sx={{ minWidth: 'unset', padding: '6.25px !important' }}>
+        <Button sx={{ minWidth: 'unset', padding: '6.25px !important', display: open ? 'none' : 'inline-flex' }} onClick={handleOpen} >
           <MoreHorizRoundedIcon />
         </Button>
       </Box>
