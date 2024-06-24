@@ -60,7 +60,7 @@ const listBoards = [
 ]
 
 function ExpandLeft() {
-  const [openExpand, setOpenExpand] = useState(true)
+  const [openExpand, setOpenExpand] = useState(false)
   return (
     <>
       { openExpand
