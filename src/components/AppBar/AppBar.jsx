@@ -10,8 +10,10 @@ import Account from './Menu/Account'
 import Notification from './Menu/Notification'
 import Information from './Menu/Information'
 import Search from './Menu/Search'
+import { useMediaQuery } from '@mui/material'
 
 function AppBar() {
+  const responsive = useMediaQuery('(min-width: 751px)')
   return (
     <Box sx={{
       p: 1,
@@ -32,7 +34,7 @@ function AppBar() {
       <Box sx={{ display: 'flex', alignItems: 'center', flexWrap: 'wrap', gap: 0.5 }}>
         <Search/>
         <Notification/>
-        <Information/>
+        { responsive && <Information/>}
         <Account/>
       </Box>
     </Box>

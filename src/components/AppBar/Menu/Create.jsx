@@ -1,8 +1,9 @@
-import { Button, List, ListItemButton, ListItemText, Menu, Typography } from '@mui/material'
+import { Button, List, ListItemButton, ListItemText, Menu, Typography, useMediaQuery } from '@mui/material'
 import { useState } from 'react'
 import GroupIcon from '@mui/icons-material/Group'
 import DashboardIcon from '@mui/icons-material/Dashboard'
 import AssignmentTurnedInIcon from '@mui/icons-material/AssignmentTurnedIn'
+import AddIcon from '@mui/icons-material/Add'
 
 const listCreate = [
   {
@@ -26,6 +27,7 @@ const listCreate = [
 ]
 
 function Create() {
+  const responsive = useMediaQuery('(min-width: 1281px)')
   const [anchorEl, setAnchorEl] = useState(null)
   const open = Boolean(anchorEl)
   const handleClick = (event) => {
@@ -47,12 +49,13 @@ function Create() {
         sx={{
           backgroundColor: 'rgba(255,255,255,0.2)',
           color: 'white',
-          paddingY: '7px',
+          minWidth: 'unset',
+          padding: responsive ? '7px 10px' : '6.25px',
           '&:hover' : { backgroundColor: 'rgba(255,255,255,0.4)', boxShadow: 'unset' },
           boxShadow: 'unset'
         }}
       >
-        Create
+        {responsive ? 'Create' : <AddIcon/>}
       </Button>
       <Menu
         id='menu-create'

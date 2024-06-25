@@ -7,6 +7,11 @@ const COLUMN_HEIGHT_HEADER = '50px'
 const COLUMN_HEIGHT_FOOTER = '56px'
 
 const theme = extendTheme({
+  breakpoints:{
+    values: {
+      
+    }
+  },
   colorSchemes: {
     light:{
       palette:{
@@ -71,6 +76,27 @@ const theme = extendTheme({
         }
       }
     }
+    // MuiCssBaseline: {
+    //   styleOverrides:{
+    //     body:{
+    //       '*::-webkit-scrollbar' : {
+    //         height: '16px',
+    //         background: '#00000026'
+    //       },
+    //       '*::-webkit-scrollbar-thumb' : {
+    //         background: '#fff6'
+    //       },
+    //       '*::-webkit-scrollbar-thumb:hover' : {
+
+    //       },
+    //       '*::-webkit-scrollbar-button' : {
+    //         width: '8px',
+    //         height: '8px',
+    //         color: '#fff6'
+    //       }
+    //     }
+    //   }
+    // }
   },
   trello: {
     appBarHeight: APP_BAR_HEIGHT,
