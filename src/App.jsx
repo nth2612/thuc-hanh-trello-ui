@@ -1,10 +1,9 @@
-import { Box, Drawer, IconButton, useMediaQuery } from '@mui/material'
+import { Box, Drawer, useMediaQuery } from '@mui/material'
 import AppBar from './components/AppBar/AppBar'
 import BoardBar from './components/BoardBar/BoardBar'
 import ExpandLeft from './components/ExpandLeft/ExpandLeft'
 import { useState } from 'react'
 import BoardMenu from './components/BoardMenu/BoardMenu'
-import CloseIcon from '@mui/icons-material/Close'
 
 function App() {
   const removeMargin = useMediaQuery('(min-width: 751px)')

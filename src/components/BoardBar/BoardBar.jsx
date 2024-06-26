@@ -53,14 +53,14 @@ function BoardBar({ handleOpen, open }) {
         <Automation hideText={responsiveText} />
         <Tooltip title='Filter cards F'>
           <Button
-            sx={{ lineHeight: 1, minWidth: 'unset', py: !responsiveFilter ? '6px' : undefined, '& > .MuiButton-icon' : { margin: !responsiveFilter ? '0' : undefined } }}
+            sx={{ color: '#fff', lineHeight: 1, minWidth: 'unset', py: !responsiveFilter ? '6px' : undefined, '& > .MuiButton-icon' : { margin: !responsiveFilter ? '0' : undefined } }}
             startIcon={<FilterListIcon/>}>{ responsiveFilter && <span>Filters</span>}</Button>
         </Tooltip>
         <Divider orientation='vertical' variant='middle' flexItem sx={{ borderColor: '#2976a3', margin: '8px 2px' }} />
         <Members/>
         <Share/>
         <Button sx={{ minWidth: 'unset', padding: '4px !important', display: open ? 'none' : 'inline-flex' }} onClick={handleOpen} >
-          <MoreHorizRoundedIcon />
+          <MoreHorizRoundedIcon sx={{ color: 'white' }} />
         </Button>
       </Box>
     </Box>

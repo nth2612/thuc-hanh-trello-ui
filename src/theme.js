@@ -51,7 +51,8 @@ const theme = extendTheme({
         root:{
           // top: `${APP_BAR_HEIGHT} !important`,
           borderRadius: '8px',
-          width: '304px'
+          width: '304px',
+          backgroundColor: '#fff'
         }
       }
     },
@@ -74,7 +75,8 @@ const theme = extendTheme({
       styleOverrides:{
         root: {
           fontSize: '0.75rem',
-          fontWeight: '700'
+          fontWeight: '700',
+          backgroundColor: '#fff'
         }
       }
     }

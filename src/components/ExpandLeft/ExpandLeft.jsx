@@ -76,19 +76,19 @@ function ExpandLeft() {
                   <Typography fontSize='0.75rem' >Free</Typography>
                 </Box>
                 <Button sx={{ minWidth: 'unset', padding: '4px' }} onClick={() => setOpenExpand(false)} >
-                  <KeyboardArrowLeftRoundedIcon/>
+                  <KeyboardArrowLeftRoundedIcon sx={{ color: 'white' }} />
                 </Button>
               </Box>
               <Box sx={{ flex: 1 }} >
                 <Box>
                   <Box sx={{ paddingTop: '12px' }}>
-                    <Button sx={{ padding: '0 0 0 16px', height: '32px' }} startIcon={<DashboardIcon sx={{ ml: 0, fontSize: '1rem' }} />} fullWidth >
+                    <Button sx={{ color: '#fff', padding: '0 0 0 16px', height: '32px' }} startIcon={<DashboardIcon sx={{ ml: 0, fontSize: '1rem' }} />} fullWidth >
                       <Typography sx={{ flex: '1', textAlign: 'left' }} >Boards</Typography>
                     </Button>
-                    <Button sx={{ padding: '2px 2px 2px 16px', '& .MuiButton-icon:nth-of-type(2)' : { m: '2px', padding: '2px', borderRadius: '4px', '&:hover' : { backgroundColor: 'rgba(255,255,255,0.2)' } } }} startIcon={<Person2OutlinedIcon sx={{ ml: 0, fontSize: '1rem' }} />} endIcon={<AddOutlinedIcon sx={{ fontSize: '20px' }} />} fullWidth>
+                    <Button sx={{ color: '#fff', padding: '2px 2px 2px 16px', '& .MuiButton-icon:nth-of-type(2)' : { m: '2px', padding: '2px', borderRadius: '4px', '&:hover' : { backgroundColor: 'rgba(255,255,255,0.2)' } } }} startIcon={<Person2OutlinedIcon sx={{ ml: 0, fontSize: '1rem' }} />} endIcon={<AddOutlinedIcon sx={{ fontSize: '20px' }} />} fullWidth>
                       <Typography sx={{ flex: '1', textAlign: 'left' }} >Member</Typography>
                     </Button>
-                    <Button sx={{ padding: '2px 2px 2px 16px', '& .MuiButton-icon:nth-of-type(2)' : { m: '2px', padding: '2px', borderRadius: '4px', '&:hover' : { backgroundColor: 'rgba(255,255,255,0.2)' } } }} startIcon={<SettingsOutlinedIcon sx={{ ml: 0, fontSize: '1rem' }} />} endIcon={<ExpandMoreOutlinedIcon sx={{ fontSize: '20px' }}/>} fullWidth>
+                    <Button sx={{ color: '#fff', padding: '2px 2px 2px 16px', '& .MuiButton-icon:nth-of-type(2)' : { m: '2px', padding: '2px', borderRadius: '4px', '&:hover' : { backgroundColor: 'rgba(255,255,255,0.2)' } } }} startIcon={<SettingsOutlinedIcon sx={{ ml: 0, fontSize: '1rem' }} />} endIcon={<ExpandMoreOutlinedIcon sx={{ fontSize: '20px' }}/>} fullWidth>
                       <Typography sx={{ flex: '1', textAlign: 'left' }}>
                       Workspace settings
                       </Typography>
@@ -96,10 +96,10 @@ function ExpandLeft() {
                   </Box>
                   <Box sx={{ mt: '6px' }}>
                     <h5 style={{ fontSize: '14px', color: '#fff', padding: '5px 0 5px 12px' }}>Workspace views</h5>
-                    <Button fullWidth sx={{ padding: '5.5px 6px 5.5px 16px' }} startIcon={<TableRowsIcon sx={{ ml: 0, fontSize: '1rem' }} />} >
+                    <Button fullWidth sx={{ color: '#fff', padding: '5.5px 6px 5.5px 16px' }} startIcon={<TableRowsIcon sx={{ ml: 0, fontSize: '1rem' }} />} >
                       <Typography sx={{ flex: '1', textAlign: 'left', fontStyle: 'italic' }} >Table</Typography>
                     </Button>
-                    <Button fullWidth sx={{ padding: '5.5px 6px 5.5px 16px' }} startIcon={<CalendarMonthIcon sx={{ ml: 0, fontSize: '1rem' }} />} >
+                    <Button fullWidth sx={{ color: '#fff', padding: '5.5px 6px 5.5px 16px' }} startIcon={<CalendarMonthIcon sx={{ ml: 0, fontSize: '1rem' }} />} >
                       <Typography sx={{ flex: '1', textAlign: 'left', fontStyle: 'italic' }} >Calendar</Typography>
                     </Button>
                   </Box>
@@ -111,11 +111,11 @@ function ExpandLeft() {
                       '&:hover .MuiBox-root .MuiButtonBase-root:nth-of-type(1) .MuiSvgIcon-root' : { color: '#fff' }
                     }}>
                       <Typography sx={{ flex: 1, pl: '12px', fontWeight: '500', color: '#fff' }} >Your boards</Typography>
-                      <Box>
+                      <Box >
                         <Button sx={{ mr: 0.5, minWidth: 'unset', padding: '4px', transition: 'none' }} >
                           <MoreHorizOutlinedIcon sx={{ fontSize: '20px' }} />
                         </Button>
-                        <Button sx={{ mr: 0.5, minWidth: 'unset', padding: '4px' }} >
+                        <Button sx={{ mr: 0.5, minWidth: 'unset', padding: '4px', color: '#fff' }} >
                           <AddOutlinedIcon sx={{ fontSize: '20px' }} />
                         </Button>
                       </Box>

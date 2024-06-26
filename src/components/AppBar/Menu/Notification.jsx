@@ -89,12 +89,12 @@ function Notification() {
       >
         <ListItem sx={{ display: 'block' }}>
           <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-            <Typography variant='h2' sx={{ fontSize: '20px', fontWeight: '500' }}>Notifications</Typography>
+            <Typography variant='h2' sx={{ fontSize: '20px', fontWeight: '500', color: '#172b4d' }}>Notifications</Typography>
             <Box sx={{ display: 'flex', alignItems: 'center' }}>
-              <Typography>Only show unread</Typography>
+              <Typography sx={{ color: '#626f86', fontSize: '12px', textAlign: 'right' }} >Only show unread</Typography>
               <Android12Switch checked={showUnread} onChange={() => setShowUnread(!showUnread)} />
               <Button sx={{ width: '30px', height: '30px', minWidth: 'unset', color: 'unset', '&:hover' : { backgroundColor: '#091e4224' } }} >
-                <MoreVertIcon />
+                <MoreVertIcon sx={{ color: '#172b4d' }} />
               </Button>
             </Box>
           </Box>
@@ -102,7 +102,7 @@ function Notification() {
         <Divider variant='middle' />
         <Box sx={{ display: 'flex', alignItems: 'center', flexDirection: 'column', paddingY: '70px' }}>
           <img style={{ marginBottom: '32px', display: 'block' }} src="https://trello.com/assets/ee2660df9335718b1a80.svg" alt="img" />
-          <Typography variant='span' fontSize='20px'>{showUnread ? 'No unread notifications' : 'No notifications'}</Typography>
+          <Typography variant='span' color='#172b4d' fontSize='20px'>{showUnread ? 'No unread notifications' : 'No notifications'}</Typography>
         </Box>
       </Menu>
     </>

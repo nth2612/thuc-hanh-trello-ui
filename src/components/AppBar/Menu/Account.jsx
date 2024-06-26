@@ -51,58 +51,58 @@ function Account() {
         }}
       >
         <List subheader={
-          <ListSubheader component={'div'} sx={{ color: '#626f86' }}>ACCOUNT</ListSubheader>
+          <ListSubheader component={'div'} sx={{ color: '#626f86', lineHeight: '36px' }}>ACCOUNT</ListSubheader>
         }>
           <ListItem>
             <Avatar src={myavt} sx={{ width: 40, height: 40, mr: 1 }}></Avatar>
             <ListItemText
-              sx={{ '& span' : { fontSize: '0.875rem' } }}
+              sx={{ my: 0, '& span' : { fontSize: '0.875rem', color: '#172b4d' } }}
               primary='Tuấn Hải'
               secondary={
-                <Typography variant='body1' sx={{ fontSize: '0.75rem' }}>notihuli@gmail.com</Typography>
+                <Typography variant='body1' color='#44546f' sx={{ fontSize: '0.75rem' }}>notihuli@gmail.com</Typography>
               }
             />
           </ListItem>
-          <ListItemButton>
-            <ListItemText primary='Switch accounts' />
+          <ListItemButton sx={{ color: '#172b4d' }} >
+            <ListItemText sx={{ my: 0 }} primary='Switch accounts' />
           </ListItemButton>
-          <ListItemButton>
-            <ListItemText primary='Manage account' />
-            <ListItemIcon sx={{ justifyContent: 'center' }}>
+          <ListItemButton sx={{ color: '#172b4d' }} >
+            <ListItemText sx={{ my: 0 }} primary='Manage account' />
+            <ListItemIcon sx={{ justifyContent: 'center', color: '#44546f' }}>
               <OutputIcon/>
             </ListItemIcon>
           </ListItemButton>
         </List>
-        <Divider/>
-        <ListSubheader component={'div'} sx={{ color: '#626f86' }}>TRELLO</ListSubheader>
-        <ListItemButton>
-          <ListItemText primary='Profile and visibility' />
+        <Divider sx={{ borderColor: '#091e4224' }} />
+        <ListSubheader component={'div'} sx={{ color: '#626f86', fontSize: '11px', lineHeight: '36px' }}>TRELLO</ListSubheader>
+        <ListItemButton sx={{ color: '#172b4d' }} >
+          <ListItemText sx={{ my: 0 }} primary='Profile and visibility' />
         </ListItemButton>
-        <ListItemButton>
-          <ListItemText primary='Activity' />
+        <ListItemButton sx={{ color: '#172b4d' }} >
+          <ListItemText sx={{ my: 0 }} primary='Activity' />
         </ListItemButton>
-        <ListItemButton>
-          <ListItemText primary='Cards' />
+        <ListItemButton sx={{ color: '#172b4d' }} >
+          <ListItemText sx={{ my: 0 }} primary='Cards' />
         </ListItemButton>
-        <ListItemButton>
-          <ListItemText primary='Settings' />
+        <ListItemButton sx={{ color: '#172b4d' }} >
+          <ListItemText sx={{ my: 0 }} primary='Settings' />
         </ListItemButton>
-        <ListItemButton>
-          <ListItemText primary='Theme' />
-          <ListItemIcon sx={{ justifyContent: 'center' }}>
-            <ChevronRightIcon/>
+        <ListItemButton sx={{ color: '#172b4d' }} >
+          <ListItemText sx={{ my: 0 }} primary='Theme' />
+          <ListItemIcon sx={{ justifyContent: 'center', color: '#44546f' }}>
+            <ChevronRightIcon />
           </ListItemIcon>
         </ListItemButton>
-        <Divider sx={{ marginY: 1 }}/>
-        <ListItemButton>
-          <ListItemText primary='Help' />
+        <Divider sx={{ marginY: 1, borderColor: '#091e4224' }}/>
+        <ListItemButton sx={{ color: '#172b4d' }} >
+          <ListItemText sx={{ my: 0 }} primary='Help' />
         </ListItemButton>
-        <ListItemButton>
-          <ListItemText primary='Shortcuts' />
+        <ListItemButton sx={{ color: '#172b4d' }} >
+          <ListItemText sx={{ my: 0 }} primary='Shortcuts' />
         </ListItemButton>
-        <Divider sx={{ marginY: 1 }}/>
-        <ListItemButton>
-          <ListItemText primary='Log out' />
+        <Divider sx={{ marginY: 1, borderColor: '#091e4224' }}/>
+        <ListItemButton sx={{ color: '#172b4d' }} >
+          <ListItemText sx={{ my: 0 }} primary='Log out' />
         </ListItemButton>
       </Menu>
     </>

@@ -79,13 +79,13 @@ function Create() {
                 <ListItemText
                   sx={{ marginY: 0 }}
                   primary={
-                    <Typography sx={{ display: 'flex', alignItems: 'center', paddingBottom: 0.5, pl: 0.5 }}>
+                    <Typography sx={{ display: 'flex', alignItems: 'center', paddingBottom: 0.5, pl: 0.5, color: '#172b4d' }}>
                       {create.icon}
                       <Typography variant='span'>{create.pri_text}</Typography>
                     </Typography>
                   }
                   secondary={
-                    <Typography sx={{ fontSize: '0.75rem' }}>{create.se_text}</Typography>
+                    <Typography sx={{ fontSize: '0.75rem', color: '#44546f' }}>{create.se_text}</Typography>
                   }
                 />
               </ListItemButton>

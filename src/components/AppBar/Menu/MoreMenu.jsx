@@ -21,6 +21,7 @@ function MoreMenu({ hideWS, hideR, hideS, hideT }) {
         aria-haspopup="true"
         aria-expanded={open ? 'true' : undefined}
         onClick={handleClick}
+        sx={{ color: '#fff' }}
       >
         More
       </Button>
@@ -50,25 +51,25 @@ function MoreMenu({ hideWS, hideR, hideS, hideT }) {
         <List>
           <ListItemButton sx={{ display: hideWS ? 'none' : 'flex', justifyContent: 'space-between', py: '4px', pr: '6px', '&:hover' : { bgcolor: '#091e4224' } }}>
             <Typography sx={{ fontWeight: '500', color: '#44546f' }} >Workspaces</Typography>
-            <ListItemIcon sx={{ justifyContent: 'center', minWidth: 'unset' }}>
+            <ListItemIcon sx={{ justifyContent: 'center', minWidth: 'unset', color: '#091e42' }}>
               <ChevronRightRoundedIcon/>
             </ListItemIcon>
           </ListItemButton>
           <ListItemButton sx={{ display: hideR ? 'none' : 'flex', justifyContent: 'space-between', py: '4px', pr: '6px', '&:hover' : { bgcolor: '#091e4224' } }}>
             <Typography sx={{ fontWeight: '500', color: '#44546f' }} >Recent boards</Typography>
-            <ListItemIcon sx={{ justifyContent: 'center', minWidth: 'unset' }}>
+            <ListItemIcon sx={{ justifyContent: 'center', minWidth: 'unset', color: '#091e42' }}>
               <ChevronRightRoundedIcon/>
             </ListItemIcon>
           </ListItemButton>
           <ListItemButton sx={{ display: hideS ? 'none' : 'flex', justifyContent: 'space-between', py: '4px', pr: '6px', '&:hover' : { bgcolor: '#091e4224' } }}>
             <Typography sx={{ fontWeight: '500', color: '#44546f' }} >Starred boards</Typography>
-            <ListItemIcon sx={{ justifyContent: 'center', minWidth: 'unset' }}>
+            <ListItemIcon sx={{ justifyContent: 'center', minWidth: 'unset', color: '#091e42' }}>
               <ChevronRightRoundedIcon/>
             </ListItemIcon>
           </ListItemButton>
           <ListItemButton sx={{ display: hideT ? 'none' : 'flex', justifyContent: 'space-between', py: '4px', pr: '6px', '&:hover' : { bgcolor: '#091e4224' } }}>
             <Typography sx={{ fontWeight: '500', color: '#44546f' }} >Templates</Typography>
-            <ListItemIcon sx={{ justifyContent: 'center', minWidth: 'unset' }}>
+            <ListItemIcon sx={{ justifyContent: 'center', minWidth: 'unset', color: '#091e42' }}>
               <ChevronRightRoundedIcon/>
             </ListItemIcon>
           </ListItemButton>
