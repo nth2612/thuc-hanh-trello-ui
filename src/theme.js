@@ -44,6 +44,13 @@ const theme = extendTheme({
         }
       }
     },
+    MuiSvgIcon:{
+      styleOverrides:{
+        root:{
+          color: '#fff'
+        }
+      }
+    },
     MuiPaper: {
       styleOverrides:{
         root:{
