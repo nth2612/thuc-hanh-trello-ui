@@ -1,4 +1,4 @@
-import { Box } from '@mui/material'
+import { Box, useMediaQuery } from '@mui/material'
 import AppBar from './components/AppBar/AppBar'
 import BoardBar from './components/BoardBar/BoardBar'
 import ExpandLeft from './components/ExpandLeft/ExpandLeft'
@@ -6,6 +6,7 @@ import { useState } from 'react'
 import BoardMenu from './components/BoardMenu/BoardMenu'
 
 function App() {
+  const removeMargin = useMediaQuery('(min-width: 751px)')
   const [open, setOpen] = useState(false)
   const handleOpen = () => {
     setOpen(!open)
@@ -15,7 +16,7 @@ function App() {
       <AppBar/>
       <Box sx={{ borderTop: '1px solid #297eb0', display: 'flex', position: 'relative' }}>
         <ExpandLeft/>
-        <Box sx={{ flexGrow: 1, borderLeft: '1px solid #298ec9', overflow: 'auto', mr: open ? '339px' : '0px' }}>
+        <Box sx={{ flexGrow: 1, borderLeft: '1px solid #298ec9', overflow: 'auto', mr: open && removeMargin ? '339px' : '0px' }}>
           <BoardBar handleOpen={handleOpen} open={open} />
           <Box sx={{
             backgroundColor: '#0079bf',

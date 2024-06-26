@@ -9,7 +9,7 @@ import { cloneElement, useState } from 'react'
 const listVisibility = [
   {
     id: 1,
-    icon: <LockOutlinedIcon fontSize='16px' sx={{ color: '#C9372C', mr: 0.5 }}/>,
+    icon: <LockOutlinedIcon sx={{ color: '#C9372C', mr: 0.5, fontSize: '16px' }}/>,
     priText: 'Private',
     seText: 'Only board members can see this board. Workspace admins can close the board or remove members.',
     disabled : false,
@@ -17,7 +17,7 @@ const listVisibility = [
   },
   {
     id: 2,
-    icon: <PeopleAltOutlinedIcon fontSize='16px' sx={{ color: '#44546f', mr: 0.5 }}/>,
+    icon: <PeopleAltOutlinedIcon sx={{ color: '#44546f', mr: 0.5, fontSize: '16px' }}/>,
     priText: 'Workspace',
     seText: 'All members of the Test Workspace can see and edit this board.',
     disabled : false,
@@ -25,7 +25,7 @@ const listVisibility = [
   },
   {
     id: 3,
-    icon: <CorporateFareIcon fontSize='16px' sx={{ color: '#44546f', mr: 0.5 }}/>,
+    icon: <CorporateFareIcon sx={{ color: '#44546f', mr: 0.5, fontSize: '16px' }}/>,
     priText: 'Organization',
     seText: 'All members of the organization can see this board. The board must be added to an enterprise Workspace to enable this.',
     disabled : true,
@@ -33,7 +33,7 @@ const listVisibility = [
   },
   {
     id: 4,
-    icon: <PublicIcon fontSize='16px' sx={{ color: '#22a06b', mr: 0.5 }} />,
+    icon: <PublicIcon sx={{ color: '#22a06b', mr: 0.5, fontSize: '16px' }} />,
     priText: 'Public',
     seText: 'Anyone on the internet can see this board. Only board members can edit.',
     disabled : false,
@@ -77,8 +77,9 @@ function WorkspaceVisible({ hideText }) {
             minWidth: 'unset',
             paddingRight: !hideText ? undefined : 1.5,
             paddingLeft: !hideText ? undefined : 2,
-            paddingY: !hideText ? '8.25px' : undefined,
-            '& *' : { margin: !hideText ? '0 !important' : undefined } }}
+            paddingY: !hideText ? '8px' : undefined,
+            '& *' : { margin: !hideText ? '0 !important' : undefined },
+            '& .MuiButton-icon .MuiSvgIcon-root' : { fontSize: '16px' } }}
           startIcon={<IconChoosed />}>
           {hideText && <span>{textChoosed} visible</span>}
         </Button>

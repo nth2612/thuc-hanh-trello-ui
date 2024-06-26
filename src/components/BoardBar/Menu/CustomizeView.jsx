@@ -67,7 +67,7 @@ function CustomizeView({ combine }) {
     <>
       <Tooltip title='Customize views'>
         <Button
-          sx={{ minWidth: 'unset', backgroundColor: alignmentt ? '#dcdfe4' : 'transparent', color: alignmentt ? '#44546f' : '#fff' }}
+          sx={{ minWidth: 'unset', lineHeight: '1', backgroundColor: alignmentt ? '#dcdfe4' : 'transparent', color: alignmentt ? '#44546f' : '#fff', p: '4px' }}
           id='btn-customize-views'
           aria-controls={open ? 'menu-customize-views' : undefined}
           aria-haspopup="true"
@@ -76,7 +76,7 @@ function CustomizeView({ combine }) {
         >
           { !combine && (
             <>
-              <DashboardOutlinedIcon fontSize='small' sx={{ mr: '8px' }} />
+              <DashboardOutlinedIcon fontSize='small' sx={{ mr: '4px' }} />
               <span>Board</span>
             </>)}
           <KeyboardArrowDownRoundedIcon />

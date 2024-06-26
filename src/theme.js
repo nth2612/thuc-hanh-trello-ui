@@ -7,11 +7,6 @@ const COLUMN_HEIGHT_HEADER = '50px'
 const COLUMN_HEIGHT_FOOTER = '56px'
 
 const theme = extendTheme({
-  breakpoints:{
-    values: {
-      
-    }
-  },
   colorSchemes: {
     light:{
       palette:{
@@ -44,13 +39,13 @@ const theme = extendTheme({
         }
       }
     },
-    MuiSvgIcon:{
-      styleOverrides:{
-        root:{
-          color: '#fff'
-        }
-      }
-    },
+    // MuiSvgIcon:{
+    //   styleOverrides:{
+    //     root:{
+    //       color: '#fff'
+    //     }
+    //   }
+    // },
     MuiPaper: {
       styleOverrides:{
         root:{

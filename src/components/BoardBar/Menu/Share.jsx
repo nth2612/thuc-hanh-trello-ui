@@ -1,5 +1,5 @@
 import { Avatar, Box, Button, IconButton, Link, Modal, TextField, Typography } from '@mui/material'
-import GroupAddOutlinedIcon from '@mui/icons-material/GroupAddOutlined'
+import PersonAddAltIcon from '@mui/icons-material/PersonAddAlt'
 import { useState } from 'react'
 import CloseIcon from '@mui/icons-material/Close'
 import InsertLinkIcon from '@mui/icons-material/InsertLink'
@@ -25,11 +25,14 @@ function Share() {
     <>
       <Button
         onClick={handleOpen}
-        startIcon={<GroupAddOutlinedIcon/>}
+        startIcon={<PersonAddAltIcon sx={{ fontSize: '16px !important' }} />}
         sx={{
+          lineHeight: 1,
           backgroundColor: '#dcdfe4',
           color: '#172b4d',
-          '&:hover' : { backgroundColor: 'white' }
+          py: '8px',
+          '&:hover' : { backgroundColor: 'white' },
+          '& .MuiButton-icon' : { ml: 0, mr: '4px' }
         }}>
         Share
       </Button>
