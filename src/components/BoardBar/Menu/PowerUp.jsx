@@ -2,7 +2,7 @@ import { Box, Button, ListSubheader, Menu, Tooltip } from '@mui/material'
 import RocketLaunchOutlinedIcon from '@mui/icons-material/RocketLaunchOutlined'
 import { useState } from 'react'
 
-function PowerUp() {
+function PowerUp({ hideText }) {
   const [anchorEl, setAnchorEl] = useState(null)
   const open = Boolean(anchorEl)
   const handleClick = (event) => {
@@ -20,9 +20,9 @@ function PowerUp() {
           aria-haspopup="true"
           aria-expanded={open ? 'true' : undefined}
           onClick={handleClick}
-          sx={{ '& .MuiSvgIcon-root': { fontSize: '16px' } }}
+          sx={{ minWidth: 'unset', '& .MuiSvgIcon-root': { fontSize: '20px' }, '& .MuiButton-startIcon' : { margin: !hideText ? '0' : undefined }, paddingY: !hideText ? '8.25px' : undefined }}
           startIcon={<RocketLaunchOutlinedIcon/>}>
-          Power-Ups
+          {hideText && <span>Power-Ups</span>}
         </Button>
       </Tooltip>
       <Menu

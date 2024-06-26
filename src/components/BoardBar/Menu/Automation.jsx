@@ -51,7 +51,7 @@ function Automation({ hideText }) {
           aria-haspopup="true"
           aria-expanded={open ? 'true' : undefined}
           onClick={handleClick}
-          sx={{ minWidth: 'unset', '& .MuiSvgIcon-root': { fontSize: '20px' }, '& .MuiButton-startIcon' : { margin: !hideText && '0' }, paddingY: !hideText && '8.25px' }}
+          sx={{ minWidth: 'unset', '& .MuiSvgIcon-root': { fontSize: '20px' }, '& .MuiButton-startIcon' : { margin: !hideText ? '0': '0 4px' }, paddingY: !hideText ? '8.25px' : undefined }}
           startIcon={<BoltIcon/>}>
           {hideText && <span>Automation</span>}
         </Button>

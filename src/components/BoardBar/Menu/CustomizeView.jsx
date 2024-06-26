@@ -51,7 +51,7 @@ const listViews = [
   }
 ]
 
-function CustomizeView() {
+function CustomizeView({ combine }) {
   const [anchorEl, setAnchorEl] = useState(null)
   const [alignmentt, setAlignment] = useState(false)
   const open = Boolean(anchorEl)
@@ -67,14 +67,19 @@ function CustomizeView() {
     <>
       <Tooltip title='Customize views'>
         <Button
-          sx={{ minWidth: 'unset', backgroundColor: alignmentt ? '#dcdfe4' : 'transparent' }}
+          sx={{ minWidth: 'unset', backgroundColor: alignmentt ? '#dcdfe4' : 'transparent', color: alignmentt ? '#44546f' : '#fff' }}
           id='btn-customize-views'
           aria-controls={open ? 'menu-customize-views' : undefined}
           aria-haspopup="true"
           aria-expanded={open ? 'true' : undefined}
           onClick={handleClick}
         >
-          <KeyboardArrowDownRoundedIcon sx={{ color: alignmentt ? '#172b4d' : '#fff' }} />
+          { !combine && (
+            <>
+              <DashboardOutlinedIcon fontSize='small' sx={{ mr: '8px' }} />
+              <span>Board</span>
+            </>)}
+          <KeyboardArrowDownRoundedIcon />
         </Button>
       </Tooltip>
       <Menu

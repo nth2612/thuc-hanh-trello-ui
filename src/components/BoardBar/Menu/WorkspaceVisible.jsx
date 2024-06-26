@@ -41,7 +41,7 @@ const listVisibility = [
   }
 ]
 
-function WorkspaceVisible() {
+function WorkspaceVisible({ hideText }) {
   const [anchorEl, setAnchorEl] = useState(null)
   const open = Boolean(anchorEl)
   const handleClick = (event) => {
@@ -73,9 +73,14 @@ function WorkspaceVisible() {
           aria-haspopup="true"
           aria-expanded={open ? 'true' : undefined}
           onClick={handleClick}
-          sx={{ paddingRight: 1.5, paddingLeft: 2 }}
+          sx={{
+            minWidth: 'unset',
+            paddingRight: !hideText ? undefined : 1.5,
+            paddingLeft: !hideText ? undefined : 2,
+            paddingY: !hideText ? '8.25px' : undefined,
+            '& *' : { margin: !hideText ? '0 !important' : undefined } }}
           startIcon={<IconChoosed />}>
-          {textChoosed} visible
+          {hideText && <span>{textChoosed} visible</span>}
         </Button>
       </Tooltip>
       <Menu
