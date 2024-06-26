@@ -13,7 +13,7 @@ function App() {
   return (
     <>
       <AppBar/>
-      <Box sx={{ borderTop: '1px solid #297eb0', display: 'none', position: 'relative' }}>
+      <Box sx={{ borderTop: '1px solid #297eb0', display: 'flex', position: 'relative' }}>
         <ExpandLeft/>
         <Box sx={{ flexGrow: 1, borderLeft: '1px solid #298ec9', overflow: 'auto', mr: open ? '339px' : '0px' }}>
           <BoardBar handleOpen={handleOpen} open={open} />

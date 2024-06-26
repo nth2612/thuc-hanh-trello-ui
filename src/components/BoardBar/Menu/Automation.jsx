@@ -33,7 +33,7 @@ const listAutomation = [
   }
 ]
 
-function Automation() {
+function Automation({ hideText }) {
   const [anchorEl, setAnchorEl] = useState(null)
   const open = Boolean(anchorEl)
   const handleClick = (event) => {
@@ -51,9 +51,9 @@ function Automation() {
           aria-haspopup="true"
           aria-expanded={open ? 'true' : undefined}
           onClick={handleClick}
-          sx={{ '& .MuiSvgIcon-root': { fontSize: '18px' }, '& .MuiButton-startIcon' : { mr: '4px' } }}
+          sx={{ minWidth: 'unset', '& .MuiSvgIcon-root': { fontSize: '20px' }, '& .MuiButton-startIcon' : { margin: !hideText && '0' }, paddingY: !hideText && '8.25px' }}
           startIcon={<BoltIcon/>}>
-          Automation
+          {hideText && <span>Automation</span>}
         </Button>
       </Tooltip>
       <Menu

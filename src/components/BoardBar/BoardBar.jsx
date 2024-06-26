@@ -1,4 +1,4 @@
-import { Box, Button, Divider, Tooltip, Typography } from '@mui/material'
+import { Box, Button, Divider, Tooltip, Typography, useMediaQuery } from '@mui/material'
 import FilterListIcon from '@mui/icons-material/FilterList'
 import DashboardOutlinedIcon from '@mui/icons-material/DashboardOutlined'
 import StarRoundedIcon from '@mui/icons-material/StarRounded'
@@ -11,6 +11,7 @@ import Share from './Menu/Share'
 import Members from './Menu/Members'
 
 function BoardBar({ handleOpen, open }) {
+  const responsiveText = useMediaQuery('(min-width: 1541px)')
   return (
     <Box sx={{
       height: (theme) => theme.trello.boardBarHeight,
@@ -42,7 +43,7 @@ function BoardBar({ handleOpen, open }) {
       </Box>
       <Box sx={{ display: 'flex', alignItems: 'center', gap: 0.5, '& .MuiButtonBase-root' : { paddingX: '12px' } }}>
         <PowerUp/>
-        <Automation/>
+        <Automation hideText={responsiveText} />
         <Tooltip title='Filter cards F'>
           <Button startIcon={<FilterListIcon/>}>Filter</Button>
         </Tooltip>

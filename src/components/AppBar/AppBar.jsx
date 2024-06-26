@@ -11,9 +11,15 @@ import Notification from './Menu/Notification'
 import Information from './Menu/Information'
 import Search from './Menu/Search'
 import { useMediaQuery } from '@mui/material'
+import MoreMenu from './Menu/MoreMenu'
 
 function AppBar() {
-  const responsive = useMediaQuery('(min-width: 751px)')
+  const responsiveCreate = useMediaQuery('(min-width: 751px)')
+  const responsiveTemplate = useMediaQuery('(min-width: 1281px)')
+  const responsiveStarred = useMediaQuery('(min-width: 1161px)')
+  const responsiveRecent = useMediaQuery('(min-width: 1041px)')
+  const responsiveWorkspace = useMediaQuery('(min-width: 901px)')
+
   return (
     <Box sx={{
       p: 1,
@@ -22,19 +28,26 @@ function AppBar() {
       backgroundColor: '#0065a0',
       height: (theme) => theme.trello.appBarHeight
     }}>
-      <Box sx={{ display: 'flex', alignItems: 'center', flexWrap: 'wrap', gap: 1 }}>
+      <Box sx={{ display: 'flex', alignItems: 'center', flexWrap: 'wrap', gap: 0.5 }}>
         <More/>
         <Home/>
-        <Workspaces/>
-        <Recent/>
-        <Starred/>
-        <Templates/>
-        <Create/>
+        <Box sx={{ display: 'flex', alignItems: 'center', gap: 0.5 }} >
+          <Box sx={{ display: 'flex', alignItems: 'center', gap: 0.5 }} >
+            {responsiveWorkspace && <Workspaces/>}
+            {responsiveRecent && <Recent/>}
+            {responsiveStarred && <Starred/>}
+            {responsiveTemplate && <Templates/>}
+          </Box>
+          <Box sx={{ display: responsiveTemplate ? 'none' : 'inline-flex' }} >
+            <MoreMenu hideWS={responsiveWorkspace} hideR={responsiveRecent} hideS={responsiveStarred} hideT={responsiveTemplate} />
+          </Box>
+          <Create/>
+        </Box>
       </Box>
       <Box sx={{ display: 'flex', alignItems: 'center', flexWrap: 'wrap', gap: 0.5 }}>
         <Search/>
         <Notification/>
-        { responsive && <Information/>}
+        { responsiveCreate && <Information/>}
         <Account/>
       </Box>
     </Box>
