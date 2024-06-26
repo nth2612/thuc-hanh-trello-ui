@@ -35,7 +35,9 @@ function App() {
             <Box sx={{ marginX: '40px', width: '400px', bgcolor: 'white', flexShrink: 0 }} >Xin chao tat ca cac be</Box>
           </Box>
         </Box>
-        <BoardMenu handleOpen={handleOpen} open={open} />
+        <Box className='board-menu' sx={{ width: '339px', bgcolor: '#fff', position: 'absolute', top: 0, right: 0, bottom: 0, transform: open ? 'translateX(0)' : 'translateX(339px)' }} >
+          {open && <BoardMenu handleOpen={handleOpen} />}
+        </Box>
       </Box>
     </>
   )

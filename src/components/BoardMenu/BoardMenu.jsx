@@ -101,43 +101,37 @@ const listMenuItem = [
   }
 ]
 
-function BoardMenu({ handleOpen, open }) {
-  if (open) {
-    return (
-      <>
-        <Box className='board-menu' sx={{ width: '339px', bgcolor: '#fff', position: 'absolute', top: 0, right: 0, bottom: 0, transform: open ? 'translateX(0)' : 'translateX(339px)' }} >
-          <List>
-            <ListItem sx={{ padding: '0 12px', justifyContent: 'space-between', alignContent: 'center', mb: '6px' }} >
-              <IconButton sx={{ borderRadius: '8px' }} >
-                <ChevronLeftRoundedIcon/>
-              </IconButton>
-              <Typography sx={{ fontSize: '16px', color: '#172b4d', fontWeight: '500' }}>Menu</Typography>
-              <IconButton sx={{ borderRadius: '8px' }} onClick={handleOpen} >
-                <CloseIcon sx={{ color: '#44546f' }} />
-              </IconButton>
-            </ListItem>
-            <Divider variant='middle' />
-            <Box sx={{ padding: '12px 12px 8px' }} >
-              {listMenuItem.map(item => {
-                if (item.id) {
-                  return (
-                    <ListItemButton sx={{ padding: '6px', borderRadius: '8px', mb: '4px' }} key={item.id}>
-                      {item.icon}
-                      <Typography sx={{ color: '#172b4d', ml: '12px' }} >{item.textMenu}</Typography>
-                    </ListItemButton>
-                  )
-                }
-                return (
-                  <Divider sx={{ my: '8px' }} key={Math.random()} />
-                )
-              })}
-            </Box>
-          </List>
-        </Box>
-      </>
-    )
-  }
-  return <></>
+function BoardMenu({ handleOpen }) {
+  console.log('tao da duoc them vao')
+  return (
+    <List>
+      <ListItem sx={{ padding: '0 12px', justifyContent: 'space-between', alignContent: 'center', mb: '6px' }} >
+        <IconButton sx={{ borderRadius: '8px' }} >
+          <ChevronLeftRoundedIcon/>
+        </IconButton>
+        <Typography sx={{ fontSize: '16px', color: '#172b4d', fontWeight: '500' }}>Menu</Typography>
+        <IconButton sx={{ borderRadius: '8px' }} onClick={handleOpen} >
+          <CloseIcon sx={{ color: '#44546f' }} />
+        </IconButton>
+      </ListItem>
+      <Divider variant='middle' />
+      <Box sx={{ padding: '12px 12px 8px' }} >
+        {listMenuItem.map(item => {
+          if (item.id) {
+            return (
+              <ListItemButton sx={{ padding: '6px', borderRadius: '8px', mb: '4px' }} key={item.id}>
+                {item.icon}
+                <Typography sx={{ color: '#172b4d', ml: '12px' }} >{item.textMenu}</Typography>
+              </ListItemButton>
+            )
+          }
+          return (
+            <Divider sx={{ my: '8px' }} key={Math.random()} />
+          )
+        })}
+      </Box>
+    </List>
+  )
 }
 
 export default BoardMenu
