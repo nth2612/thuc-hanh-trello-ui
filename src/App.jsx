@@ -1,15 +1,19 @@
-import { Box, useMediaQuery } from '@mui/material'
+import { Box, Drawer, IconButton, useMediaQuery } from '@mui/material'
 import AppBar from './components/AppBar/AppBar'
 import BoardBar from './components/BoardBar/BoardBar'
 import ExpandLeft from './components/ExpandLeft/ExpandLeft'
 import { useState } from 'react'
 import BoardMenu from './components/BoardMenu/BoardMenu'
+import CloseIcon from '@mui/icons-material/Close'
 
 function App() {
   const removeMargin = useMediaQuery('(min-width: 751px)')
   const [open, setOpen] = useState(false)
   const handleOpen = () => {
     setOpen(!open)
+  }
+  const setOpenToFalse = () => {
+    setOpen(false)
   }
   return (
     <>
@@ -35,9 +39,16 @@ function App() {
             <Box sx={{ marginX: '40px', width: '400px', bgcolor: 'white', flexShrink: 0 }} >Xin chao tat ca cac be</Box>
           </Box>
         </Box>
-        <Box className='board-menu' sx={{ width: '339px', bgcolor: '#fff', position: 'absolute', top: 0, right: 0, bottom: 0, transform: open ? 'translateX(0)' : 'translateX(339px)' }} >
-          {open && <BoardMenu handleOpen={handleOpen} />}
-        </Box>
+        {/* <Box className='board-menu' sx={{ width: '339px', bgcolor: '#fff', position: 'absolute', top: 0, right: 0, bottom: 0, transform: open ? 'translateX(0)' : 'translateX(339px)' }} >
+          <Box>
+            {open && <BoardMenu handleOpen={handleOpen} />}
+          </Box>
+        </Box> */}
+        <Drawer anchor='right' open={open} onClose={() => setOpen(false)} sx={{ '& .MuiPaper-root' : { top: '58px', width: '339px', borderRadius: 'unset', transition: 'transform,width 100ms ease-in' } }} >
+          <Box>
+            {open && <BoardMenu handleOpen={setOpenToFalse} />}
+          </Box>
+        </Drawer>
       </Box>
     </>
   )

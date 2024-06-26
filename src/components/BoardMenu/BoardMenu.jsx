@@ -102,7 +102,6 @@ const listMenuItem = [
 ]
 
 function BoardMenu({ handleOpen }) {
-  console.log('tao da duoc them vao')
   return (
     <List>
       <ListItem sx={{ padding: '0 12px', justifyContent: 'space-between', alignContent: 'center', mb: '6px' }} >
