@@ -2,7 +2,6 @@ import { Avatar, Button, Divider, List, ListItemAvatar, ListItemButton, ListItem
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore'
 import { useState } from 'react'
 import myavt3 from '~/assets/myavt3.png'
-import theme from '~/theme'
 
 function Workspaces() {
   const [anchorEl, setAnchorEl] = useState(null)

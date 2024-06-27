@@ -10,7 +10,7 @@ import Automation from './Menu/Automation'
 import Share from './Menu/Share'
 import Members from './Menu/Members'
 
-function BoardBar({ handleOpen, open }) {
+function BoardBar({ handleOpen, open, nameBoard }) {
   const responsiveText = useMediaQuery('(min-width: 1541px)')
   const combineCustom = useMediaQuery('(min-width: 1281px)')
   const responsiveFilter = useMediaQuery('(min-width: 901px)')
@@ -28,7 +28,7 @@ function BoardBar({ handleOpen, open }) {
       overflow: 'hidden'
     }}>
       <Box sx={{ display: 'flex', alignItems: 'center', gap: 0.5 }}>
-        <Typography variant='span' sx={{ paddingX: '10px', fontSize: '1.125rem', fontWeight: 'bold', color: 'white' }}>Mất tích</Typography>
+        <Typography variant='span' sx={{ paddingX: '10px', fontSize: '1.125rem', fontWeight: 'bold', color: 'white' }}>{nameBoard}</Typography>
         <Box sx={{ padding: '6px', display: 'inline-flex', cursor: 'pointer', borderRadius: 1, '&:hover' : { backgroundColor: 'rgba(255,255,255,0.2)' } }}>
           <StarRoundedIcon sx={{ color: '#fff' }} fontSize='small' />
         </Box>

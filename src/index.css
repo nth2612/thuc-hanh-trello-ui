@@ -39,6 +39,26 @@ body{
 .MuiDrawer-root.MuiDrawer-modal {
   position: unset;
 }
+textarea{
+  padding: 8px 8px 8px 12px;
+  resize: none;
+  overflow: hidden;
+  min-height: 20px;
+  width: 100%;
+  border-radius: 8px;
+  border: none;
+  box-shadow: inset 0 0 0 2px #388bff;
+  height: 92px;
+  font-size: 14px;
+  font-weight: 500;
+  color: #172b4d;
+  font-family: Roboto;
+  line-height: 20px;
+  display: block;
+}
+textarea:focus-visible{
+  outline: none;
+}
 /* ::-webkit-scrollbar-track{
   box-shadow: inset 0 0 5px grey; 
   border-radius: 10px
