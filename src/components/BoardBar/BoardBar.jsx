@@ -24,7 +24,8 @@ function BoardBar({ handleOpen, open }) {
       alignItems: 'center',
       flexWrap: 'wrap',
       padding: '12px 10px 12px 16px',
-      gap: '6px'
+      gap: '6px',
+      overflow: 'hidden'
     }}>
       <Box sx={{ display: 'flex', alignItems: 'center', gap: 0.5 }}>
         <Typography variant='span' sx={{ paddingX: '10px', fontSize: '1.125rem', fontWeight: 'bold', color: 'white' }}>Mất tích</Typography>

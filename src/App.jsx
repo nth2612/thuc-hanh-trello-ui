@@ -44,7 +44,7 @@ function App() {
           </Box>
         </Box> */}
         <Drawer anchor='right' open={open} onClose={() => setOpen(false)} sx={{ '& .MuiPaper-root' : { top: '58px', width: '339px', borderRadius: 'unset', transition: 'transform,width 100ms ease-in' } }} >
-          <Box>
+          <Box sx={{ height: '100%' }} >
             {open && <BoardMenu handleOpen={setOpenToFalse} />}
           </Box>
         </Drawer>

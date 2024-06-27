@@ -39,7 +39,7 @@ function PowerUp({ hideText }) {
           <img src='https://trello.com/assets/42f8533548e4eeb72589.png' style={{ marginBottom: '12px', width: '164px', height: '147px' }} />
           <Box sx={{ color: '#172b4d', fontSize: '0.875rem' }}>Bring additional features to your boards and integrate apps like Google Drive, Slack, and more.</Box>
         </Box>
-        <Button fullWidth sx={{ backgroundColor: '#0c66e4', '&:hover' : { backgroundColor: '#0055cc' } }} >Add Power-Ups</Button>
+        <Button fullWidth sx={{ color: '#fff', backgroundColor: '#0c66e4', '&:hover' : { backgroundColor: '#0055cc' } }} >Add Power-Ups</Button>
       </Menu>
     </>
   )

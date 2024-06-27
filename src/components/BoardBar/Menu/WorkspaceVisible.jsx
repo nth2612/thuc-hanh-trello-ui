@@ -101,7 +101,7 @@ function WorkspaceVisible({ hideText }) {
         }}
       >
         <List sx={{ paddingY: 0 }}>
-          <ListSubheader sx={{ textAlign: 'center', fontSize: '0.875rem' }}>Change visibility</ListSubheader>
+          <ListSubheader sx={{ textAlign: 'center', fontSize: '0.875rem', color: '#44546f' }}>Change visibility</ListSubheader>
           {listVisibility.map(vi => (
             <ListItemButton disabled={vi.disabled} key={vi.id} sx={{ padding: '6px 12px' }} onClick={() => handleChooseVisibility(vi) } >
               <ListItemText
@@ -109,11 +109,11 @@ function WorkspaceVisible({ hideText }) {
                 primary={
                   <Typography sx={{ display: 'flex', alignItems: 'center', paddingBottom: 0.5, pl: 0.5 }}>
                     {vi.icon}
-                    <Typography variant='span'>{vi.priText}{vi.checked && <span><DoneIcon sx={{ fontSize: '1.125rem', paddingTop: '4px' }} /></span>}</Typography>
+                    <Typography variant='span' sx={{ color: '#172b4d' }} >{vi.priText}{vi.checked && <span><DoneIcon sx={{ fontSize: '1.125rem', paddingTop: '4px' }} /></span>}</Typography>
                   </Typography>
                 }
                 secondary={
-                  <Typography sx={{ fontSize: '0.75rem' }}>{vi.seText}</Typography>
+                  <Typography sx={{ fontSize: '0.75rem', color: '#44546f' }}>{vi.seText}</Typography>
                 }
               />
             </ListItemButton>

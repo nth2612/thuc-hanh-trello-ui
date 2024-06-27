@@ -103,8 +103,8 @@ const listMenuItem = [
 
 function BoardMenu({ handleOpen }) {
   return (
-    <List>
-      <ListItem sx={{ padding: '0 12px', justifyContent: 'space-between', alignContent: 'center', mb: '6px' }} >
+    <List sx={{ height: '100%', p: 0 }} >
+      <ListItem sx={{ padding: '8px 12px 0', justifyContent: 'space-between', alignContent: 'center', mb: '6px', position: 'relative' }} >
         <IconButton sx={{ borderRadius: '8px' }} >
           <ChevronLeftRoundedIcon/>
         </IconButton>
@@ -113,8 +113,8 @@ function BoardMenu({ handleOpen }) {
           <CloseIcon sx={{ color: '#44546f' }} />
         </IconButton>
       </ListItem>
-      <Divider variant='middle' />
-      <Box sx={{ padding: '12px 12px 8px' }} >
+      <Divider variant='middle' sx={{ borderColor: '#091e4224' }} />
+      <Box sx={{ padding: '12px 12px 8px', height: '100%' }} >
         {listMenuItem.map(item => {
           if (item.id) {
             return (
@@ -125,7 +125,7 @@ function BoardMenu({ handleOpen }) {
             )
           }
           return (
-            <Divider sx={{ my: '8px' }} key={Math.random()} />
+            <Divider sx={{ my: '8px', borderColor: '#091e4224' }} key={Math.random()} />
           )
         })}
       </Box>
