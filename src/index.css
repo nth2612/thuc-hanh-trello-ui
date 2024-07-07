@@ -40,12 +40,12 @@ body{
   position: unset;
 }
 textarea{
-  padding: 8px 8px 8px 12px;
+  padding: 6px 8px 6px 12px;
   resize: none;
   overflow: hidden;
   min-height: 20px;
   width: 100%;
-  height: 92px;
+  /* height: 92px; */
   border-radius: 8px;
   border: none;
   box-shadow: inset 0 0 0 2px #388bff;
