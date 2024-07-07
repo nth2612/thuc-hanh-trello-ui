@@ -78,10 +78,12 @@ function WorkspaceVisible({ hideText }) {
             paddingRight: !hideText ? undefined : 1.5,
             paddingLeft: !hideText ? undefined : 2,
             paddingY: !hideText ? '8px' : undefined,
+            lineHeight: '20px',
             '& *' : { margin: !hideText ? '0 !important' : undefined },
-            '& .MuiButton-icon .MuiSvgIcon-root' : { fontSize: '16px' } }}
+            '& .MuiButton-icon .MuiSvgIcon-root' : { fontSize: '16px' },
+            '& .MuiButton-icon' : { mr: 0 } }}
           startIcon={<IconChoosed />}>
-          {hideText && <span>{textChoosed} visible</span>}
+          {hideText && <span>{textChoosed}</span>}
         </Button>
       </Tooltip>
       <Menu

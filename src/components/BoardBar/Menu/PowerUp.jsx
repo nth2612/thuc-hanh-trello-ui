@@ -20,7 +20,7 @@ function PowerUp({ hideText }) {
           aria-haspopup="true"
           aria-expanded={open ? 'true' : undefined}
           onClick={handleClick}
-          sx={{ minWidth: 'unset', '& .MuiSvgIcon-root': { fontSize: '20px', color: '#fff' }, '& .MuiButton-startIcon' : { margin: !hideText ? '0' : undefined }, paddingY: !hideText ? '6px' : undefined }}
+          sx={{ lineHeight: 1, minWidth: 'unset', '& .MuiSvgIcon-root': { fontSize: '20px', color: '#fff' }, '& .MuiButton-startIcon' : { margin: !hideText ? '0' : '0px 8px 0px 0px' }, paddingY: !hideText ? '6px' : undefined }}
           startIcon={<RocketLaunchOutlinedIcon/>}>
           {hideText && <span>Power-Ups</span>}
         </Button>

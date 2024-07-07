@@ -1,10 +1,36 @@
 import { Box, IconButton } from '@mui/material'
 import MoreHorizIcon from '@mui/icons-material/MoreHoriz'
-import { useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 
 function ListColumn() {
+  const textareaRef = useRef(null)
+  const h2Ref = useRef(null)
   const [editText, setEditText] = useState(false)
   const [initText, setInitText] = useState('Ngọt band number one, abncam,scnnas,mcnkwhkcabscjkabsckjabsjkcbjkasbckbansc,nákjcn')
+  const [h2Height, setH2Height] = useState(0)
+  const handleChangeEditText = (e) => {
+    setInitText(e.target.value)
+  }
+  const handleBlur = () => {
+    setEditText(false)
+  }
+  const handleKeyDown = (event) => {
+    if (event.key === 'Enter') {
+      setEditText(false)
+      setH2Height(h2Ref.current.offsetHeight)
+    }
+  }
+  useEffect(() => {
+    if (textareaRef.current) {
+      textareaRef.current.select()
+    }
+  }, [editText])
+  useEffect(() => {
+    if (h2Ref.current) {
+      console.log(h2Ref.current.offsetHeight);
+      setH2Height(h2Ref.current.offsetHeight)
+    }
+  }, [])
   return (
     <Box sx={{ mt: '12px', flexGrow: 1 }} >
       <Box sx={{ height: '100%' }} >
@@ -21,8 +47,8 @@ function ListColumn() {
             }}>
               <Box sx={{ padding: '8px 8px 0', display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start' }} >
                 <Box sx={{ flex: 1 }} >
-                  <h2 onClick={() => setEditText(true)} style={{ display: editText ? 'none' : 'block', color: '#172b4d', fontSize: '14px', padding: '6px 8px 6px 12px', cursor: 'pointer', fontWeight: '500', lineHeight: '20px', overflowWrap: 'anywhere' }}>{initText}</h2>
-                  {editText && <textarea name='' id='' value={initText} ></textarea>}
+                  <h2 ref={h2Ref} onClick={() => setEditText(true)} style={{ display: editText ? 'none' : 'block', color: '#172b4d', fontSize: '14px', padding: '6px 8px 6px 12px', cursor: 'pointer', fontWeight: '500', lineHeight: '20px', overflowWrap: 'anywhere' }}>{initText}</h2>
+                  {editText && <textarea ref={textareaRef} onChange={handleChangeEditText} onKeyDown={handleKeyDown} name='' id='' autoFocus onBlur={handleBlur} value={initText} ></textarea>}
                 </Box>
                 <IconButton sx={{ borderRadius: '8px', flexShrink: 0, padding: '6px', '&:hover' : { bgcolor: '#091e4224' }, '&:hover .MuiSvgIcon-root' : { color: '#44546f' } }} >
                   <MoreHorizIcon sx={{ color: '#626f86' }} fontSize='small' />
