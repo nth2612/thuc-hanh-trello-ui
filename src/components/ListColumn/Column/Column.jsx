@@ -6,7 +6,7 @@ import AddIcon from '@mui/icons-material/Add'
 import { calHeight } from '~/utils/calculatorHeight'
 import ListCard from './ListCard/ListCard'
 
-function Column({ columnName, cards, cardOrderIds }) {
+function Column({ columnName, cards, cardOrderIds, boardBarHeight }) {
   const textareaRef = useRef(null)
   // const headerRef = useRef(null)
   const h2Ref = useRef(0)
@@ -32,7 +32,7 @@ function Column({ columnName, cards, cardOrderIds }) {
   useEffect(() => {
     if (textareaRef.current) {
       textareaRef.current.select()
-      setHeaderHeight(calHeight('head-card'))
+      setHeaderHeight(calHeight('.head-card'))
     }
   }, [editText])
   // useEffect(() => {
@@ -72,7 +72,7 @@ function Column({ columnName, cards, cardOrderIds }) {
         </Box>
         <Box sx={{ height: '8px', mb: '-2px' }} ></Box>
         {/* List Card */}
-        <ListCard headerHeight={headerHeight} cards={cards} cardOrderIds={cardOrderIds} />
+        <ListCard headerHeight={headerHeight} cards={cards} cardOrderIds={cardOrderIds} boardBarHeight={boardBarHeight} />
         <Box sx={{ padding: '8px 8px 0', display: 'flex', alignItems: 'center', justifyContent: 'space-between', columnGap: '4px' }} >
           <Button startIcon={<AddIcon/>} sx={{ color: '#44546f', borderRadius: '8px', justifyContent: 'flex-start', lineHeight: 1, '&:hover' : { bgcolor: '#091e4224', color: '#172b4d' } }} fullWidth >Add a card</Button>
           <IconButton sx={{ borderRadius: '8px', '&:hover' : { bgcolor: '#091e4224', color: '#172b4d' } }} >

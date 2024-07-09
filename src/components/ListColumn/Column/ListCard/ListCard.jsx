@@ -1,7 +1,7 @@
 import { Box } from '@mui/material'
 import TrelloCard from './TrelloCard/TrelloCard'
 
-function ListCard({ headerHeight, cards, cardOrderIds }) {
+function ListCard({ headerHeight, cards, cardOrderIds, boardBarHeight }) {
   const cardOrdered = cardOrderIds.map(id => cards.find(card => card._id === id))
   return (
     <Box sx={{
@@ -15,7 +15,7 @@ function ListCard({ headerHeight, cards, cardOrderIds }) {
       flex: '1 1 auto',
       scrollbarWidth: 'thin',
       scrollbarColor: '#091e4224 #091e420f',
-      maxHeight: (theme) => `calc(${theme.trello.cardHeight} - ${headerHeight}px)`
+      maxHeight: (theme) => `calc(${theme.trello.cardHeight} - ${boardBarHeight}px - ${headerHeight}px)`
     }} >
       {/* Trello Card */}
       {cardOrdered.map(card => <TrelloCard key={card._id} cardName={card.title} />)}

@@ -2,7 +2,7 @@ import { Box } from '@mui/material'
 import Column from './Column/Column'
 import { mockData } from '~/apis/mock-data.js'
 
-function ListColumn() {
+function ListColumn({ boardBarHeight }) {
   // const textareaRef = useRef(null)
   // // const headerRef = useRef(null)
   // const h2Ref = useRef(0)
@@ -44,7 +44,7 @@ function ListColumn() {
       <Box sx={{ height: '100%' }} >
         <Box sx={{ padding: '2px 6px 8px', height: '100%', display: 'flex', flexDirection: 'row' }} >
           {/* Column */}
-          {orderedColumns.map(col => <Column key={col._id} columnName={col.title} cards={col.card} cardOrderIds={col.cardOrderIds} />)}
+          {orderedColumns.map(col => <Column key={col._id} columnName={col.title} cards={col.card} cardOrderIds={col.cardOrderIds} boardBarHeight={boardBarHeight} />)}
         </Box>
       </Box>
     </Box>

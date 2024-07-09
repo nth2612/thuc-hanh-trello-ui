@@ -10,12 +10,12 @@ import Automation from './Menu/Automation'
 import Share from './Menu/Share'
 import Members from './Menu/Members'
 
-function BoardBar({ handleOpen, open, nameBoard }) {
+function BoardBar({ handleOpen, open, nameBoard, refBoardBar }) {
   const responsiveText = useMediaQuery('(min-width: 1541px)')
   const combineCustom = useMediaQuery('(min-width: 1281px)')
   const responsiveFilter = useMediaQuery('(min-width: 901px)')
   return (
-    <Box sx={{
+    <Box id='board-bar' ref={refBoardBar} sx={{
       height: 'auto',
       // height: (theme) => theme.trello.boardBarHeight,
       backgroundColor: '#005c91',
