@@ -2,7 +2,7 @@ export const mockData = {
   board : {
     _id : 'board-id-02',
     title: 'Mất tích',
-    columnOrderIds: [],
+    columnOrderIds: ['column-id-02', 'column-id-03', 'column-id-01'],
     type: 'public',
     columns: [
       {
