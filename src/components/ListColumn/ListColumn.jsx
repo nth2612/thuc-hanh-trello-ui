@@ -1,6 +1,7 @@
 import { Box } from '@mui/material'
 import Column from './Column/Column'
 import { mockData } from '~/apis/mock-data.js'
+import AddColumn from '../AddColumn/AddColumn'
 
 function ListColumn({ boardBarHeight }) {
   // const textareaRef = useRef(null)
@@ -45,6 +46,7 @@ function ListColumn({ boardBarHeight }) {
         <Box sx={{ padding: '2px 6px 8px', height: '100%', display: 'flex', flexDirection: 'row' }} >
           {/* Column */}
           {orderedColumns.map(col => <Column key={col._id} columnName={col.title} cards={col.card} cardOrderIds={col.cardOrderIds} boardBarHeight={boardBarHeight} />)}
+          <AddColumn/>
         </Box>
       </Box>
     </Box>
