@@ -48,7 +48,7 @@ textarea{
   /* height: 92px; */
   border-radius: 8px;
   border: none;
-  box-shadow: inset 0 0 0 2px #388bff;
+  box-shadow: inset 0 0 0 1px #8590a2;
   font-size: 14px;
   font-weight: 500;
   color: #172b4d;
@@ -58,6 +58,9 @@ textarea{
 }
 textarea:focus-visible{
   outline: none;
+}
+textarea:focus, textarea:focus-within {
+  box-shadow: inset 0 0 0 2px #388bff;
 }
 /* ::-webkit-scrollbar-track{
   box-shadow: inset 0 0 5px grey; 
