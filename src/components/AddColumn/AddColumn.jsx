@@ -2,14 +2,13 @@ import AddIcon from '@mui/icons-material/Add'
 import { Box, Button, IconButton } from '@mui/material'
 import CloseIcon from '@mui/icons-material/Close'
 import { useEffect, useRef, useState } from 'react'
-import { mockData } from '~/apis/mock-data'
+import { v4 as uuidv4 } from 'uuid'
 
-function AddColumn() {
+function AddColumn({ setRawColumn, columnOrderIds }) {
   const textareaRef = useRef(null)
   const formRef = useRef(null)
   const [openInput, setOpenInput] = useState(false)
   const [nameColumn, setNameColumn] = useState('')
-  const [newData, setNewData] = useState(mockData.board.columns)
   useEffect(() => {
     const handleBlurForm = (event) => {
       if (formRef.current) {
@@ -37,14 +36,28 @@ function AddColumn() {
   }
   const hideTextarea = (event) => {
     event.stopPropagation()
+    setNameColumn('')
     setOpenInput(false)
   }
-  const addNewColumn = (event) => {
+  const addNewColumnByButton = (event) => {
     event.stopPropagation()
+    addNewColumn()
+  }
+  const addNewColumn = () => {
     if (nameColumn !== '') {
-      console.log(nameColumn);
-    } else {
-      console.log('nhap vao di ma')
+      setRawColumn(prev => {
+        const newColumn = {
+          _id : uuidv4(),
+          boardId: 'board-id-02',
+          title: nameColumn,
+          cardOrderIds: [],
+          card: []
+        }
+        columnOrderIds.push(newColumn._id)
+        setNameColumn('')
+        textareaRef.current.focus()
+        return [...prev, newColumn]
+      })
     }
   }
   const handleChange = (input) => {
@@ -54,6 +67,12 @@ function AddColumn() {
     event.stopPropagation()
     setOpenInput(true)
   }
+  const handleKeyDown = (event) => {
+    if (event.key === 'Enter') {
+      event.preventDefault() // Ngăn điền thêm enter
+      addNewColumn()
+    }
+  }
   return (
     <Box sx={{ paddingX: '6px', flexShrink: 0, height: '100%' }} >
       {openInput ?
@@ -61,9 +80,10 @@ function AddColumn() {
           <textarea value={nameColumn} ref={textareaRef} autoFocus placeholder='Enter list title..' style={{ height: '32px', borderRadius: '4px' }}
             onClick={handleClickTextarea}
             onChange={handleChange}
+            onKeyDown={handleKeyDown}
           ></textarea>
           <Box sx={{ display: 'flex', justifyContent: 'flex-start', alignItems: 'center', gap: '4px', mt: '8px' }} >
-            <Button onClick={addNewColumn} sx={{ bgcolor: '#0c66e4', color: '#fff', fontSize: '14px', p: '6px 12px', lineHeight: '20px', '&:hover' : { bgcolor: '#0055cc' } }} >Add list</Button>
+            <Button onClick={addNewColumnByButton} sx={{ bgcolor: '#0c66e4', color: '#fff', fontSize: '14px', p: '6px 12px', lineHeight: '20px', '&:hover' : { bgcolor: '#0055cc' } }} >Add list</Button>
             <IconButton onClick={hideTextarea} sx={{ padding: '6px', borderRadius: '3px', color: '#172b4d', '&:hover' : { bgcolor: '#091e4224' } }} >
               <CloseIcon fontSize='small' />
             </IconButton>

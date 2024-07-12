@@ -70,9 +70,13 @@ function Column({ columnName, cards, cardOrderIds, boardBarHeight }) {
             <MoreHorizIcon sx={{ color: '#626f86' }} fontSize='small' />
           </IconButton>
         </Box>
-        <Box sx={{ height: '8px', mb: '-2px' }} ></Box>
-        {/* List Card */}
-        <ListCard headerHeight={headerHeight} cards={cards} cardOrderIds={cardOrderIds} boardBarHeight={boardBarHeight} />
+        { cards.length !== 0 &&
+        <>
+          <Box sx={{ height: '8px', mb: '-2px' }} ></Box>
+          {/* List Card */}
+          <ListCard headerHeight={headerHeight} cards={cards} cardOrderIds={cardOrderIds} boardBarHeight={boardBarHeight} />
+        </>
+        }
         <Box sx={{ padding: '8px 8px 0', display: 'flex', alignItems: 'center', justifyContent: 'space-between', columnGap: '4px' }} >
           <Button startIcon={<AddIcon/>} sx={{ color: '#44546f', borderRadius: '8px', justifyContent: 'flex-start', lineHeight: 1, '&:hover' : { bgcolor: '#091e4224', color: '#172b4d' } }} fullWidth >Add a card</Button>
           <IconButton sx={{ borderRadius: '8px', '&:hover' : { bgcolor: '#091e4224', color: '#172b4d' } }} >
