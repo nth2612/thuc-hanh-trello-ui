@@ -8,6 +8,7 @@ function TrelloCard({ cardName }) {
       borderRadius: '8px',
       cursor: 'pointer',
       outline: 'none',
+      boxShadow:  '0px 1px 1px #091e4240, 0px 0px 1px #091e424f',
       '&:hover, &:focus-within' : { outline: '2px solid #388bff' },
       '&:hover .MuiIconButton-root' : { display: 'inline-flex' }
     }}>
