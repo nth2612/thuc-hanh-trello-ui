@@ -3,29 +3,34 @@ import CloseIcon from '@mui/icons-material/Close'
 import { useEffect, useRef, useState } from 'react'
 import { v4 as uuidv4 } from 'uuid'
 
-function AddACard({ setIsAddingCard, setRawCard, cardOrderIds }) {
+function AddACard({ isAddingCard, setIsAddingCard, setRawCard, cardOrderIds }) {
   const textareaRef = useRef(null)
   const formRef = useRef(null)
-  const [openInput, setOpenInput] = useState(false)
+  const [openInputCard, setOpenInputCard] = useState(false)
   const [nameCard, setNameCard] = useState('')
+  useEffect(() => {
+    setOpenInputCard(true)
+  }, [])
   useEffect(() => {
     const handleBlurForm = (event) => {
       if (formRef.current) {
-        const clickedOutside = formRef.current.contains(event.target)
-        if (!clickedOutside) {
-          setOpenInput(false)
+        const clickedInside = formRef.current.contains(event.target)
+        if (!clickedInside && openInputCard) {
+          setOpenInputCard(false)
+          setIsAddingCard(false)
         }
       }
     }
-    if (openInput) {
+    if (isAddingCard) {
       document.addEventListener('click', handleBlurForm)
     }
     return () => {
-      if (openInput) {
+      if (!isAddingCard) {
         document.removeEventListener('click', handleBlurForm)
       }
     }
-  }, [openInput])
+  }, [isAddingCard, openInputCard, setIsAddingCard])
+  // Nhấn vào input
   const handleClickTextarea = (event) => {
     event.stopPropagation()
     textareaRef.current.focus()
@@ -33,10 +38,12 @@ function AddACard({ setIsAddingCard, setRawCard, cardOrderIds }) {
   const blurTextarea = () => {
     textareaRef.current.blur()
   }
+  // Button X
   const hideTextarea = (event) => {
     event.stopPropagation()
     setNameCard('')
     setIsAddingCard(false)
+    setOpenInputCard(false)
   }
   const addNewColumnByButton = (event) => {
     event.stopPropagation()

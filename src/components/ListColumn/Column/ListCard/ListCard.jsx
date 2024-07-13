@@ -1,6 +1,6 @@
 import { Box } from '@mui/material'
 import TrelloCard from './TrelloCard/TrelloCard'
-import AddACard from './AddACard/AddACard'
+import AddCard from './AddCard/AddCard'
 import { useState } from 'react'
 
 function ListCard({ headerHeight, cards, cardOrderIds, boardBarHeight, isAddingCard, setIsAddingCard }) {
@@ -22,7 +22,7 @@ function ListCard({ headerHeight, cards, cardOrderIds, boardBarHeight, isAddingC
     }} >
       {/* Trello Card */}
       {cardOrdered.map(card => <TrelloCard key={card._id} cardName={card.title} />)}
-      {isAddingCard && <AddACard setIsAddingCard={setIsAddingCard} setRawCard={setRawCard} cardOrderIds={cardOrderIds} />}
+      {isAddingCard && <AddCard isAddingCard={isAddingCard} setIsAddingCard={setIsAddingCard} setRawCard={setRawCard} cardOrderIds={cardOrderIds} />}
     </Box>
   )
 }
