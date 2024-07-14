@@ -6,6 +6,13 @@ import { useState } from 'react'
 function ListCard({ headerHeight, cards, cardOrderIds, boardBarHeight, isAddingCard, setIsAddingCard }) {
   const [rawCard, setRawCard] = useState(cards)
   const cardOrdered = cardOrderIds.map(id => rawCard.find(card => card._id === id))
+  let displayForOL = 'flex'
+  if (rawCard.length === 0) {
+    displayForOL = 'none'
+  }
+  if (isAddingCard) {
+    displayForOL = 'flex'
+  }
   return (
     <Box sx={{
       p: '2px 4px',
@@ -14,7 +21,7 @@ function ListCard({ headerHeight, cards, cardOrderIds, boardBarHeight, isAddingC
       overflowY: 'auto',
       flexDirection: 'column',
       rowGap: '8px',
-      display: 'flex',
+      display: displayForOL,
       flex: '1 1 auto',
       scrollbarWidth: 'thin',
       scrollbarColor: '#091e4224 #091e420f',
