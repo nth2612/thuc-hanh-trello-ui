@@ -118,7 +118,7 @@ function CustomizeView({ combine }) {
           <ListItemText primary={
             <Typography color='#44546f' marginBottom='16px'>View key timelines, assignments, data, and more directly from your Trello board with Trello Premium.</Typography>
           } />
-          <Button fullWidth sx={{ backgroundColor: '#0c66e4', color: 'white', '&:hover' : { backgroundColor: '#0055cc' } }} >Start free trial</Button>
+          <Button fullWidth sx={{ backgroundColor: '#0c66e4', lineHeight: 1.5, color: 'white', '&:hover' : { backgroundColor: '#0055cc' } }} >Start free trial</Button>
           <Link href='/' underline='hover' color='#44546f' textAlign='center' display='flex' justifyContent='center' marginTop='1rem' >Learn more about Trello Premium</Link>
         </List>
       </Menu>

@@ -18,7 +18,6 @@ function Share() {
         onClick={handleOpen}
         startIcon={<PersonAddAltIcon sx={{ fontSize: '16px !important' }} />}
         sx={{
-          lineHeight: 1,
           backgroundColor: '#dcdfe4',
           color: '#172b4d',
           py: '8px',
@@ -72,7 +71,7 @@ function Share() {
                   <Link underline='hover' sx={{ color: '#0c66e4', fontWeight: '600', fontSize: '12px' }} >Copy link</Link>
                 </Box>
               </Box>
-              <Button sx={{ mx: '8px', maxHeight: '32px', bgcolor: '#091e420f', color: '#172b4d', padding: '4px 10px', '&:hover' : { bgcolor: '#091e4224' } }} endIcon={<KeyboardArrowDownIcon sx={{ mr: 0 }} />} ><span style={{ textOverflow: 'ellipsis', whiteSpace: 'nowrap', overflow: 'hidden' }} >Can join as member</span></Button>
+              <Button sx={{ mx: '8px', maxHeight: '32px', lineHeight: 1.75, bgcolor: '#091e420f', color: '#172b4d', padding: '4px 10px', '&:hover' : { bgcolor: '#091e4224' } }} endIcon={<KeyboardArrowDownIcon sx={{ mr: 0 }} />} ><span style={{ textOverflow: 'ellipsis', whiteSpace: 'nowrap', overflow: 'hidden' }} >Can join as member</span></Button>
             </Box>
             <Box sx={{ pt: '16px', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }} >
               <Box sx={{ display: 'flex', alignItems: 'center' }} >
@@ -82,7 +81,7 @@ function Share() {
                   <Typography sx={{ color: '#44546f', fontWeight: 'unset', fontSize: '12px' }} >@tunhi • Workspace guest</Typography>
                 </Box>
               </Box>
-              <Button sx={{ mx: '8px', maxHeight: '32px', bgcolor: '#091e420f', color: '#172b4d', padding: '4px 10px', '&:hover' : { bgcolor: '#091e4224' } }} endIcon={<KeyboardArrowDownIcon sx={{ mr: 0 }} />} ><span style={{ textOverflow: 'ellipsis', whiteSpace: 'nowrap', overflow: 'hidden' }} >Admin</span></Button>
+              <Button sx={{ mx: '8px', maxHeight: '32px', lineHeight: 1.75, bgcolor: '#091e420f', color: '#172b4d', padding: '4px 10px', '&:hover' : { bgcolor: '#091e4224' } }} endIcon={<KeyboardArrowDownIcon sx={{ mr: 0 }} />} ><span style={{ textOverflow: 'ellipsis', whiteSpace: 'nowrap', overflow: 'hidden' }} >Admin</span></Button>
             </Box>
           </Box>
         </Box>

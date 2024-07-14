@@ -5,14 +5,19 @@ import CopyAllIcon from '@mui/icons-material/CopyAll'
 import AddIcon from '@mui/icons-material/Add'
 import { calHeight } from '~/utils/calculatorHeight'
 import ListCard from './ListCard/ListCard'
+// import { useDraggable } from '@dnd-kit/core'
 
-function Column({ columnName, cards, cardOrderIds, boardBarHeight }) {
+function Column({ column, cards, cardOrderIds, boardBarHeight }) {
+  // const { attributes, listeners, setNodeRef, transform } = useDraggable({
+  //   id: column._id,
+  //   data: { ...column }
+  // })
   const textareaRef = useRef(null)
   // const headerRef = useRef(null)
   const h2Ref = useRef(0)
   const [isAddingCard, setIsAddingCard] = useState(false)
   const [editText, setEditText] = useState(false)
-  const [initText, setInitText] = useState(columnName)
+  const [initText, setInitText] = useState(column.title)
   const [h2Height, setH2Height] = useState(0)
   const [headerHeight, setHeaderHeight] = useState(0)
   const handleClickH2 = () => {
@@ -52,7 +57,8 @@ function Column({ columnName, cards, cardOrderIds, boardBarHeight }) {
         maxHeight: '100%',
         bgcolor: '#f1f2f4',
         boxShadow: '0px 1px 1px #091E4240, 0px 0px 1px #091E424F'
-      }}>
+      }}
+      >
         <Box className='head-card' sx={{ padding: '8px 8px 0', display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start' }} >
           <Box sx={{ flex: 1 }} >
             <h2 ref={h2Ref} onClick={handleClickH2} style={{ display: editText ? 'none' : 'block', letterSpacing: 'normal', color: '#172b4d', fontSize: '14px', padding: '6px 8px 6px 12px', cursor: 'pointer', fontWeight: '500', lineHeight: '20px', overflowWrap: 'anywhere' }}>{initText}</h2>

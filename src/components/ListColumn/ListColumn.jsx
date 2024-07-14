@@ -3,6 +3,7 @@ import Column from './Column/Column'
 import { mockData } from '~/apis/mock-data.js'
 import AddColumn from '../AddColumn/AddColumn'
 import { useState } from 'react'
+// import { horizontalListSortingStrategy, SortableContext } from '@dnd-kit/sortable'
 
 function ListColumn({ boardBarHeight }) {
   const [rawColumn, setRawColumn] = useState(mockData.board.columns)
@@ -12,11 +13,13 @@ function ListColumn({ boardBarHeight }) {
   return (
     <Box sx={{ mt: '12px', flexGrow: 1 }} >
       <Box sx={{ height: '100%' }} >
+        {/* <SortableContext items={rawColumn.map(col => col._id)} strategy={horizontalListSortingStrategy} > */}
         <Box sx={{ padding: '2px 6px 8px', height: '100%', display: 'flex', flexDirection: 'row' }} >
           {/* Column */}
-          {orderedColumns.map(col => <Column key={col._id} columnName={col.title} cards={col.card} cardOrderIds={col.cardOrderIds} boardBarHeight={boardBarHeight} />)}
+          {orderedColumns.map(col => <Column key={col._id} column={col} cards={col.card} cardOrderIds={col.cardOrderIds} boardBarHeight={boardBarHeight} />)}
           <AddColumn setRawColumn={setRawColumn} columnOrderIds={columnOrderIds} />
         </Box>
+        {/* </SortableContext> */}
       </Box>
     </Box>
   )

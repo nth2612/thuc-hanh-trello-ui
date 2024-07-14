@@ -50,7 +50,7 @@ function Create() {
           backgroundColor: 'rgba(255,255,255,0.2)',
           color: 'white',
           minWidth: 'unset',
-          padding: responsive ? '7px 10px' : '6.25px',
+          padding: responsive ? ' 9.5px 10px' : '6.25px',
           '&:hover' : { backgroundColor: 'rgba(255,255,255,0.4)', boxShadow: 'unset' },
           boxShadow: 'unset'
         }}

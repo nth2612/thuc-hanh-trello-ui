@@ -6,8 +6,24 @@ import { useEffect, useRef, useState } from 'react'
 import BoardMenu from './components/BoardMenu/BoardMenu'
 import { mockData } from './apis/mock-data'
 import ListColumn from './components/ListColumn/ListColumn'
+// import { DndContext } from '@dnd-kit/core'
+// import { useSensors, useSensor, MouseSensor, TouchSensor } from '@dnd-kit/core'
 
 function App() {
+  // const mouseSensor = useSensor(MouseSensor, {
+  //   // Di chuyển 10px mới thực hiện hàm handleDrag, tránh click
+  //   activationConstraint : {
+  //     distance: 10
+  //   }
+  // })
+  // const touchSensor = useSensor(TouchSensor, {
+  //   // Nhấn giữ trong vòng 250ms và di chuyển khoảng 5px thì mới gọi hàm handleDrag
+  //   activationConstraint : {
+  //     delay: 250,
+  //     tolerance: 500
+  //   }
+  // })
+  // const sensors = useSensors(mouseSensor, touchSensor)
   const boardBarRef = useRef(null)
   const removeMargin = useMediaQuery('(min-width: 751px)')
   const [open, setOpen] = useState(false)
@@ -30,6 +46,7 @@ function App() {
         <ExpandLeft/>
         <Box sx={{ flexGrow: 1, borderLeft: '1px solid #298ec9', overflow: 'auto', mr: open && removeMargin ? '339px' : '0px' }}>
           <BoardBar refBoardBar={boardBarRef} handleOpen={handleOpen} open={open} nameBoard={mockData.board.title} />
+          {/* <DndContext sensors={sensors}> */}
           <Box sx={{
             backgroundColor: '#0079bf',
             display: 'flex',
@@ -42,12 +59,8 @@ function App() {
           }}>
             <ListColumn boardBarHeight={boardBarHeight} />
           </Box>
+          {/* </DndContext> */}
         </Box>
-        {/* <Box className='board-menu' sx={{ width: '339px', bgcolor: '#fff', position: 'absolute', top: 0, right: 0, bottom: 0, transform: open ? 'translateX(0)' : 'translateX(339px)' }} >
-          <Box>
-            {open && <BoardMenu handleOpen={handleOpen} />}
-          </Box>
-        </Box> */}
         <Drawer anchor='right' open={open} onClose={() => setOpen(false)} sx={{ '& .MuiPaper-root' : { top: '58px', width: '339px', borderRadius: 'unset', transition: 'transform,width 100ms ease-in' } }} >
           <Box sx={{ height: '100%' }} >
             {open && <BoardMenu handleOpen={setOpenToFalse} />}
