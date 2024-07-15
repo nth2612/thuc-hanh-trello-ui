@@ -13,7 +13,8 @@ const Column = memo(function Column({ column, cards, cardOrderIds, boardBarHeigh
     id: column._id,
     data: { ...column }
   })
-  console.log('re-render')
+  console.log('re-render', column._id)
+  console.log('orderids', cardOrderIds);
   const textareaRef = useRef(null)
   // const headerRef = useRef(null)
   const h2Ref = useRef(0)
@@ -46,6 +47,8 @@ const Column = memo(function Column({ column, cards, cardOrderIds, boardBarHeigh
     }
   }, [])
   useEffect(() => {
+    console.log('tao gay re-render');
+
     if (textareaRef.current) {
       textareaRef.current.select()
       setHeaderHeight(calHeight('.head-card'))
