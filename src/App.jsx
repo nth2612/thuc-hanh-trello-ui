@@ -2,14 +2,14 @@ import { Box, Drawer, useMediaQuery } from '@mui/material'
 import AppBar from './components/AppBar/AppBar'
 import BoardBar from './components/BoardBar/BoardBar'
 import ExpandLeft from './components/ExpandLeft/ExpandLeft'
-import { useEffect, useRef, useState } from 'react'
+import { memo, useEffect, useRef, useState } from 'react'
 import BoardMenu from './components/BoardMenu/BoardMenu'
 import { mockData } from './apis/mock-data'
 import ListColumn from './components/ListColumn/ListColumn'
-// import { DndContext } from '@dnd-kit/core'
+import { closestCenter, DndContext } from '@dnd-kit/core'
 // import { useSensors, useSensor, MouseSensor, TouchSensor } from '@dnd-kit/core'
 
-function App() {
+const App = memo(function App() {
   // const mouseSensor = useSensor(MouseSensor, {
   //   // Di chuyển 10px mới thực hiện hàm handleDrag, tránh click
   //   activationConstraint : {
@@ -46,20 +46,22 @@ function App() {
         <ExpandLeft/>
         <Box sx={{ flexGrow: 1, borderLeft: '1px solid #298ec9', overflow: 'auto', mr: open && removeMargin ? '339px' : '0px' }}>
           <BoardBar refBoardBar={boardBarRef} handleOpen={handleOpen} open={open} nameBoard={mockData.board.title} />
-          {/* <DndContext sensors={sensors}> */}
-          <Box sx={{
-            backgroundColor: '#0079bf',
-            display: 'flex',
-            flexDirection: 'row',
-            position: 'relative',
-            overflowX: 'auto',
-            overflowY: 'hidden',
-            height: (theme) => theme.trello.boardContentHeight,
-            scrollbarColor: '#fff6 #00000026'
-          }}>
-            <ListColumn boardBarHeight={boardBarHeight} />
-          </Box>
-          {/* </DndContext> */}
+          <DndContext
+            collisionDetection={closestCenter}
+          >
+            <Box sx={{
+              backgroundColor: '#0079bf',
+              display: 'flex',
+              flexDirection: 'row',
+              position: 'relative',
+              overflowX: 'auto',
+              overflowY: 'hidden',
+              height: (theme) => theme.trello.boardContentHeight,
+              scrollbarColor: '#fff6 #00000026'
+            }}>
+              <ListColumn boardBarHeight={boardBarHeight} />
+            </Box>
+          </DndContext>
         </Box>
         <Drawer anchor='right' open={open} onClose={() => setOpen(false)} sx={{ '& .MuiPaper-root' : { top: '58px', width: '339px', borderRadius: 'unset', transition: 'transform,width 100ms ease-in' } }} >
           <Box sx={{ height: '100%' }} >
@@ -69,6 +71,6 @@ function App() {
       </Box>
     </>
   )
-}
+})
 
 export default App

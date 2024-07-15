@@ -5,7 +5,7 @@ import { useState } from 'react'
 
 function ListCard({ headerHeight, cards, cardOrderIds, boardBarHeight, isAddingCard, setIsAddingCard }) {
   const [rawCard, setRawCard] = useState(cards)
-  const cardOrdered = cardOrderIds.map(id => rawCard.find(card => card._id === id))
+  const cardOrdered = cardOrderIds.map(id => rawCard.find(card => card?._id === id))
   let displayForOL = 'flex'
   if (rawCard.length === 0) {
     displayForOL = 'none'
@@ -28,7 +28,7 @@ function ListCard({ headerHeight, cards, cardOrderIds, boardBarHeight, isAddingC
       maxHeight: (theme) => `calc(${theme.trello.cardHeight} - ${boardBarHeight}px - ${headerHeight}px)`
     }} >
       {/* Trello Card */}
-      {cardOrdered.map(card => <TrelloCard key={card._id} cardName={card.title} />)}
+      { cards.length !== 0 && cardOrdered.map(card => <TrelloCard key={card?._id} cardName={card?.title} />)}
       {isAddingCard && <AddCard isAddingCard={isAddingCard} setIsAddingCard={setIsAddingCard} setRawCard={setRawCard} cardOrderIds={cardOrderIds} />}
     </Box>
   )

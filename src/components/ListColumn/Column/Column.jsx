@@ -1,17 +1,19 @@
 import { Box, Button, IconButton } from '@mui/material'
 import MoreHorizIcon from '@mui/icons-material/MoreHoriz'
-import { useEffect, useRef, useState } from 'react'
+import { useEffect, useRef, useState, memo, useCallback } from 'react'
 import CopyAllIcon from '@mui/icons-material/CopyAll'
 import AddIcon from '@mui/icons-material/Add'
 import { calHeight } from '~/utils/calculatorHeight'
 import ListCard from './ListCard/ListCard'
-// import { useDraggable } from '@dnd-kit/core'
+import { useSortable } from '@dnd-kit/sortable'
+import { CSS } from '@dnd-kit/utilities'
 
-function Column({ column, cards, cardOrderIds, boardBarHeight }) {
-  // const { attributes, listeners, setNodeRef, transform } = useDraggable({
-  //   id: column._id,
-  //   data: { ...column }
-  // })
+const Column = memo(function Column({ column, cards, cardOrderIds, boardBarHeight }) {
+  const { attributes, listeners, setNodeRef, transform, isDragging } = useSortable({
+    id: column._id,
+    data: { ...column }
+  })
+  console.log('re-render')
   const textareaRef = useRef(null)
   // const headerRef = useRef(null)
   const h2Ref = useRef(0)
@@ -20,21 +22,29 @@ function Column({ column, cards, cardOrderIds, boardBarHeight }) {
   const [initText, setInitText] = useState(column.title)
   const [h2Height, setH2Height] = useState(0)
   const [headerHeight, setHeaderHeight] = useState(0)
-  const handleClickH2 = () => {
+  const handleClickH2 = useCallback((event) => {
+    console.log('tao gay re-render');
+    // event.stopPropagation()
     setEditText(true)
     setH2Height(h2Ref.current.offsetHeight)
-  }
-  const handleChangeEditText = (e) => {
+  }, [])
+  const handleChangeEditText = useCallback((e) => {
+    console.log('tao gay re-render');
+
     setInitText(e.target.value)
-  }
-  const handleBlur = () => {
+  }, [])
+  const handleBlur = useCallback(() => {
+    console.log('tao gay re-render');
+
     setEditText(false)
-  }
-  const handleKeyDown = (event) => {
+  }, [])
+  const handleKeyDown = useCallback((event) => {
+    console.log('tao gay re-render');
+
     if (event.key === 'Enter') {
       setEditText(false)
     }
-  }
+  }, [])
   useEffect(() => {
     if (textareaRef.current) {
       textareaRef.current.select()
@@ -47,8 +57,15 @@ function Column({ column, cards, cardOrderIds, boardBarHeight }) {
   //   }
   // }, [initText])
   return (
-    <Box sx={{ paddingX: '6px', flexShrink: 0, height: '100%' }}>
-      <Box sx={{
+    <Box ref={setNodeRef}
+      sx={{
+        paddingX: '6px',
+        flexShrink: 0,
+        height: '100%',
+        transform: CSS.Translate.toString(transform),
+        transition: isDragging ? 'none' : 'transform 250ms ease'
+      }}>
+      <Box {...attributes} sx={{
         display: 'flex',
         flexDirection: 'column',
         width: '272px',
@@ -59,7 +76,7 @@ function Column({ column, cards, cardOrderIds, boardBarHeight }) {
         boxShadow: '0px 1px 1px #091E4240, 0px 0px 1px #091E424F'
       }}
       >
-        <Box className='head-card' sx={{ padding: '8px 8px 0', display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start' }} >
+        <Box className='head-card' {...listeners} sx={{ padding: '8px 8px 0', display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start' }} >
           <Box sx={{ flex: 1 }} >
             <h2 ref={h2Ref} onClick={handleClickH2} style={{ display: editText ? 'none' : 'block', letterSpacing: 'normal', color: '#172b4d', fontSize: '14px', padding: '6px 8px 6px 12px', cursor: 'pointer', fontWeight: '500', lineHeight: '20px', overflowWrap: 'anywhere' }}>{initText}</h2>
             <textarea
@@ -97,6 +114,6 @@ function Column({ column, cards, cardOrderIds, boardBarHeight }) {
       </Box>
     </Box>
   )
-}
+})
 
 export default Column
