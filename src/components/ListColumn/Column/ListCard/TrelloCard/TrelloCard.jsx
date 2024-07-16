@@ -1,7 +1,9 @@
 import { Box, IconButton } from '@mui/material'
 import EditOutlinedIcon from '@mui/icons-material/EditOutlined'
+import { memo } from 'react'
 
-function TrelloCard({ cardName }) {
+const TrelloCard = memo(function TrelloCard({ cardName }) {
+  console.log('card rerender');
   return (
     <Box sx={{
       bgcolor: '#fff',
@@ -22,6 +24,6 @@ function TrelloCard({ cardName }) {
       </Box>
     </Box>
   )
-}
+})
 
 export default TrelloCard

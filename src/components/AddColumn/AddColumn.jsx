@@ -68,7 +68,8 @@ function AddColumn({ setRawColumn, columnOrderIds }) {
     setOpenInput(true)
   }
   const handleKeyDown = (event) => {
-    if (event.key === 'Enter') {
+    // alert(event)
+    if (event.key === 'Enter' || event.nativeEvent.key === 'Enter') {
       event.preventDefault() // Ngăn điền thêm enter
       addNewColumn()
     }

@@ -1,6 +1,6 @@
 import { Box, Button, IconButton } from '@mui/material'
 import MoreHorizIcon from '@mui/icons-material/MoreHoriz'
-import { useEffect, useRef, useState, memo, useCallback } from 'react'
+import { useEffect, useRef, useState, memo } from 'react'
 import CopyAllIcon from '@mui/icons-material/CopyAll'
 import AddIcon from '@mui/icons-material/Add'
 import { calHeight } from '~/utils/calculatorHeight'
@@ -13,8 +13,6 @@ const Column = memo(function Column({ column, cards, cardOrderIds, boardBarHeigh
     id: column._id,
     data: { ...column }
   })
-  console.log('re-render', column._id)
-  console.log('orderids', cardOrderIds);
   const textareaRef = useRef(null)
   // const headerRef = useRef(null)
   const h2Ref = useRef(0)
@@ -23,32 +21,23 @@ const Column = memo(function Column({ column, cards, cardOrderIds, boardBarHeigh
   const [initText, setInitText] = useState(column.title)
   const [h2Height, setH2Height] = useState(0)
   const [headerHeight, setHeaderHeight] = useState(0)
-  const handleClickH2 = useCallback((event) => {
-    console.log('tao gay re-render');
+  const handleClickH2 = (event) => {
     // event.stopPropagation()
     setEditText(true)
     setH2Height(h2Ref.current.offsetHeight)
-  }, [])
-  const handleChangeEditText = useCallback((e) => {
-    console.log('tao gay re-render');
-
+  }
+  const handleChangeEditText = (e) => {
     setInitText(e.target.value)
-  }, [])
-  const handleBlur = useCallback(() => {
-    console.log('tao gay re-render');
-
+  }
+  const handleBlur = () => {
     setEditText(false)
-  }, [])
-  const handleKeyDown = useCallback((event) => {
-    console.log('tao gay re-render');
-
+  }
+  const handleKeyDown = (event) => {
     if (event.key === 'Enter') {
       setEditText(false)
     }
-  }, [])
+  }
   useEffect(() => {
-    console.log('tao gay re-render');
-
     if (textareaRef.current) {
       textareaRef.current.select()
       setHeaderHeight(calHeight('.head-card'))
@@ -60,15 +49,16 @@ const Column = memo(function Column({ column, cards, cardOrderIds, boardBarHeigh
   //   }
   // }, [initText])
   return (
-    <Box ref={setNodeRef}
+    <Box
       sx={{
         paddingX: '6px',
         flexShrink: 0,
         height: '100%',
         transform: CSS.Translate.toString(transform),
-        transition: isDragging ? 'none' : 'transform 250ms ease'
+        transition: isDragging ? 'none' : 'transform 250ms ease',
+        zIndex: isDragging ? '999' : undefined
       }}>
-      <Box {...attributes} sx={{
+      <Box ref={setNodeRef} {...attributes} sx={{
         display: 'flex',
         flexDirection: 'column',
         width: '272px',

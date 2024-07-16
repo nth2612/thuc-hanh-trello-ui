@@ -1,9 +1,10 @@
 import { Box } from '@mui/material'
 import TrelloCard from './TrelloCard/TrelloCard'
 import AddCard from './AddCard/AddCard'
-import { useState } from 'react'
+import { memo, useState } from 'react'
 
-function ListCard({ headerHeight, cards, cardOrderIds, boardBarHeight, isAddingCard, setIsAddingCard }) {
+const ListCard = memo(function ListCard({ headerHeight, cards, cardOrderIds, boardBarHeight, isAddingCard, setIsAddingCard }) {
+  console.log('list-card-rerender');
   const [rawCard, setRawCard] = useState(cards)
   const cardOrdered = cardOrderIds.map(id => rawCard.find(card => card?._id === id))
   let displayForOL = 'flex'
@@ -32,6 +33,6 @@ function ListCard({ headerHeight, cards, cardOrderIds, boardBarHeight, isAddingC
       {isAddingCard && <AddCard isAddingCard={isAddingCard} setIsAddingCard={setIsAddingCard} setRawCard={setRawCard} cardOrderIds={cardOrderIds} />}
     </Box>
   )
-}
+})
 
 export default ListCard
