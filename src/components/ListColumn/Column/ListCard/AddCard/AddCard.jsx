@@ -1,9 +1,9 @@
 import { Box, Button, IconButton } from '@mui/material'
 import CloseIcon from '@mui/icons-material/Close'
-import { useEffect, useRef, useState } from 'react'
+import { memo, useEffect, useRef, useState } from 'react'
 import { v4 as uuidv4 } from 'uuid'
 
-function AddACard({ isAddingCard, setIsAddingCard, setRawCard, cardOrderIds }) {
+const AddCard = memo(function AddACard({ isAddingCard, setIsAddingCard, setRawCard, setCardOrder }) {
   const textareaRef = useRef(null)
   const formRef = useRef(null)
   const [openInputCard, setOpenInputCard] = useState(false)
@@ -59,7 +59,7 @@ function AddACard({ isAddingCard, setIsAddingCard, setRawCard, cardOrderIds }) {
           title: nameCard,
           memberIds: []
         }
-        cardOrderIds.push(newCard._id)
+        setCardOrder(prev => [...prev, newCard._id])
         setNameCard('')
         textareaRef.current.focus()
         return [...prev, newCard]
@@ -92,6 +92,6 @@ function AddACard({ isAddingCard, setIsAddingCard, setRawCard, cardOrderIds }) {
       </Box>
     </form>
   )
-}
+})
 
-export default AddACard
+export default AddCard

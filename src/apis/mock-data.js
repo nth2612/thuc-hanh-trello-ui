@@ -1,7 +1,7 @@
 export const mockData = {
   board : {
     _id : 'board-id-02',
-    title: 'Mất tích',
+    title: 'Ngọt',
     columnOrderIds: ['column-id-01', 'column-id-02', 'column-id-03', 'column-id-04'],
     type: 'public',
     columns: [
@@ -35,7 +35,7 @@ export const mockData = {
       {
         _id: 'column-id-03',
         boardId: 'board-id-02',
-        title: 'Ngọt',
+        title: 'Gieo',
         cardOrderIds: ['card-id-01', 'card-id-02', 'card-id-03', 'card-id-04', 'card-id-05', 'card-id-06', 'card-id-07', 'card-id-08', 'card-id-09', 'card-id-10', 'card-id-11', 'card-id-12', 'card-id-13', 'card-id-14', 'card-id-15', 'card-id-16', 'card-id-17', 'card-id-18', 'card-id-19'],
         card: [
           { _id: 'card-id-01', boardId: 'board-id-02', columnId: 'column-id-03', title: 'Bạn thỏ tivi nhỏ', memberIds: [] },

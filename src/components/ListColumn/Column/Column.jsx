@@ -10,7 +10,7 @@ import { CSS } from '@dnd-kit/utilities'
 
 const Column = memo(function Column({ column, cards, cardOrderIds, boardBarHeight }) {
   const { attributes, listeners, setNodeRef, transform, isDragging } = useSortable({
-    id: column._id,
+    id: column?._id,
     data: { ...column }
   })
   const textareaRef = useRef(null)
@@ -18,11 +18,11 @@ const Column = memo(function Column({ column, cards, cardOrderIds, boardBarHeigh
   const h2Ref = useRef(0)
   const [isAddingCard, setIsAddingCard] = useState(false)
   const [editText, setEditText] = useState(false)
-  const [initText, setInitText] = useState(column.title)
+  const [initText, setInitText] = useState(column?.title)
   const [h2Height, setH2Height] = useState(0)
   const [headerHeight, setHeaderHeight] = useState(0)
   const handleClickH2 = (event) => {
-    // event.stopPropagation()
+    event.stopPropagation()
     setEditText(true)
     setH2Height(h2Ref.current.offsetHeight)
   }
@@ -56,7 +56,9 @@ const Column = memo(function Column({ column, cards, cardOrderIds, boardBarHeigh
         height: '100%',
         transform: CSS.Translate.toString(transform),
         transition: isDragging ? 'none' : 'transform 250ms ease',
-        zIndex: isDragging ? '999' : undefined
+        zIndex: isDragging ? '999' : undefined,
+        rotate: isDragging ? '5deg' : undefined,
+        opacity: isDragging ? '0.7' : undefined
       }}>
       <Box ref={setNodeRef} {...attributes} sx={{
         display: 'flex',
@@ -77,6 +79,7 @@ const Column = memo(function Column({ column, cards, cardOrderIds, boardBarHeigh
               ref={textareaRef}
               onChange={handleChangeEditText}
               onKeyDown={handleKeyDown}
+              onMouseDown={(event) => event.stopPropagation()}
               name='' id=''
               autoFocus
               onBlur={handleBlur}
@@ -87,7 +90,7 @@ const Column = memo(function Column({ column, cards, cardOrderIds, boardBarHeigh
             <MoreHorizIcon sx={{ color: '#626f86' }} fontSize='small' />
           </IconButton>
         </Box>
-        <Box sx={{ display: cards.length !== 0 ? 'block' : 'none', height: '8px', mb: '-2px' }} ></Box>
+        <Box sx={{ display: cards?.length !== 0 ? 'block' : 'none', height: '8px', mb: '-2px' }} ></Box>
         {/* List Card */}
         <ListCard
           headerHeight={headerHeight}

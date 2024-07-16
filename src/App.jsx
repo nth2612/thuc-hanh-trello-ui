@@ -41,14 +41,11 @@ const App = memo(function App() {
   }, [boardBarHeight])
   const handleDragEnd = (event) => {
     const { active, over } = event
-    console.log('keo thang', active.id, 'sang', over.id)
     const oldIndex = columnIds.indexOf(active.id)
     const newIndex = columnIds.indexOf(over.id)
     const newColumnIds = [...columnIds]
     newColumnIds.splice(oldIndex, 1)
     newColumnIds.splice(newIndex, 0, active.id)
-    console.log('old ids', columnIds);
-    console.log('new ids', newColumnIds);
     setColumnIds(newColumnIds)
   }
   return (
@@ -57,7 +54,7 @@ const App = memo(function App() {
       <Box sx={{ borderTop: '1px solid #297eb0', display: 'flex', position: 'relative' }}>
         <ExpandLeft/>
         <Box sx={{ flexGrow: 1, borderLeft: '1px solid #298ec9', overflow: 'auto', mr: open && removeMargin ? '339px' : '0px' }}>
-          <BoardBar refBoardBar={boardBarRef} handleOpen={handleOpen} open={open} nameBoard={mockData.board.title} />
+          <BoardBar refBoardBar={boardBarRef} handleOpen={handleOpen} open={open} nameBoard={mockData.board?.title} />
           <DndContext
             sensors={sensors}
             onDragEnd={handleDragEnd}

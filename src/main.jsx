@@ -7,10 +7,10 @@ import theme from '~/theme.js'
 import { Experimental_CssVarsProvider as CssVarsProdiver } from '@mui/material'
 
 ReactDOM.createRoot(document.getElementById('root')).render(
-  // <React.StrictMode>
+  <React.StrictMode>
     <CssVarsProdiver theme={theme} defaultMode='system'>
       <CssBaseline />
       <App />
     </CssVarsProdiver>
-  // </React.StrictMode>
+  </React.StrictMode>
 )
