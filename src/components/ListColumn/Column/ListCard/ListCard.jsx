@@ -3,9 +3,23 @@ import TrelloCard from './TrelloCard/TrelloCard'
 import AddCard from './AddCard/AddCard'
 import { memo, useState } from 'react'
 import { SortableContext, verticalListSortingStrategy } from '@dnd-kit/sortable'
-import { closestCorners, DndContext } from '@dnd-kit/core'
+import { closestCorners, DndContext, MouseSensor, TouchSensor, useSensor, useSensors } from '@dnd-kit/core'
 
 const ListCard = memo(function ListCard({ headerHeight, cards, cardOrderIds, boardBarHeight, isAddingCard, setIsAddingCard }) {
+  const mouseSensor = useSensor(MouseSensor, {
+    // Di chuyển 10px mới thực hiện hàm handleDrag, tránh click
+    activationConstraint : {
+      distance: 10
+    }
+  })
+  const touchSensor = useSensor(TouchSensor, {
+    // Nhấn giữ trong vòng 250ms và di chuyển khoảng 5px thì mới gọi hàm handleDrag
+    activationConstraint : {
+      delay: 250,
+      tolerance: 500
+    }
+  })
+  const sensors = useSensors(mouseSensor, touchSensor)
   const [rawCard, setRawCard] = useState(cards)
   const [cardOrder, setCardOrder] = useState(cardOrderIds)
   const cardOrdered = cardOrder?.map(id => rawCard?.find(card => card?._id === id))
@@ -32,7 +46,7 @@ const ListCard = memo(function ListCard({ headerHeight, cards, cardOrderIds, boa
     setCardOrder(newColumnIds)
   }
   return (
-    <DndContext onDragEnd={handleDragEnd} collisionDetection={closestCorners} modifiers={[restrictToVerticalAxis]} >
+    <DndContext sensors={sensors} onDragEnd={handleDragEnd} collisionDetection={closestCorners} modifiers={[restrictToVerticalAxis]} >
       <SortableContext items={cardOrdered.map(card => card?._id)} strategy={verticalListSortingStrategy} >
         <Box sx={{
           p: '2px 4px',
